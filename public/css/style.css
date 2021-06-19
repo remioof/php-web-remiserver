@@ -1,0 +1,119 @@
+/* Custom styles and layout overrides*/
+:root{
+  --color-w1      :#fff;
+  --color-w2      :#ececec;
+  --color-main-bg-d :#969397;
+  --color-main-bg   :#a6a2a1;
+  --color-text-l    :#100b11;
+  --color-p         :#611420;
+  --color-p2        :#ff003c; 
+  --color-text-h    :#ebe356;
+  --color-text-bg   :#c96724;
+  --color-text-bg-h :#514759;
+}
+
+@font-face {
+  /* webrip from discord referallink */
+  font-family: Unispace;
+  src: url('font/unispace_bd.woff'); /* browser */
+  src: url('font/unispace_bd.woff2'); /* modern browser */
+  src: url('font/unispace_bd.ttf'); /* android, ios */
+}
+
+@font-face {
+  font-family: RobotoCondensed;
+  src: url('font/RobotoCondensed-Regular.ttf');
+}
+
+html , html body{
+  font-size: 100%;
+  font-family: RobotoCondensed, 'Courier New', Courier, monospace;
+  background-color: var(--color-main-bg);
+  color: var(--color-w2);
+}
+
+h1, h2, h3, h4 {
+  font-family: Unispace, Helvetica, Arial, sans-serif;
+}
+
+li, ul, ol {
+  list-style: none;
+}
+
+a {
+  color: var(--color-text-l);
+}
+
+a:hover, a:active, a:focus {
+  color: var(--color-text-h);
+}
+
+a ~ li {
+  background: var(--color-text-bg);
+  transition: var(--transition);
+
+}
+
+/* nav styles */
+
+nav > * {
+  background-color: var(--color-text-bg);
+}
+
+.svg-fill {
+  fill: var(--color-text-l);
+  transition: var(--transition);
+
+}
+
+nav .svg-icon {
+  height: calc(var(--height-main)*.625);
+  width: calc(var(--height-main)*.625);
+  transition: calc(var(--transition)*.5) ease;
+}
+
+nav .svg-nav {
+  height: 1.4rem;
+  width: 1.4rem;
+  padding-bottom: calc(1.4rem*.1);
+}
+
+#jumbotron {
+  background: linear-gradient(#000000a0, #000000a0), url('../img/jumbo.gif');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.container {
+  background-color: var(--color-main-bg-d);
+}
+
+/* dom events */
+
+nav li:hover .svg-fill, nav li:active .svg-fill {
+  fill: var(--color-text-h);
+  transition: var(--transition);
+}
+
+nav li:hover, nav li:active {
+  background-color: var(--color-text-bg-h);
+  transition: var(--transition);
+
+}
+
+nav .svg-unfocus {
+  opacity: 30%;
+  transition: var(--transition);
+}
+
+@media screen and (min-width: 768px) {
+  nav .svg-icon {
+    height: calc(var(--height-main)*.825);
+    width: calc(var(--height-main)*.825);
+  }
+}

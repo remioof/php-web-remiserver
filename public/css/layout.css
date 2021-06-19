@@ -1,0 +1,130 @@
+/* layouts */
+
+:root {
+  --height-main : 5.125rem; 
+  --transition: 200ms;
+}
+
+/* init html */
+html, html body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+html * {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  text-decoration: none;
+}
+
+/* navs */
+nav {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: .8rem 0 .8rem 0;
+  width: fit-content;
+  height: fit-content;
+}
+
+nav > * {
+  margin: 0 .6rem 0 0;
+}
+
+nav > * > * {
+  display: flex;
+  width: auto ;
+  padding: .4rem;
+}
+
+#nav-navbar, #nav-gamenav {
+  display: flex;
+}
+
+/* gamenavs */
+#nav-gamenav {
+  justify-content: center;
+  flex-direction: column;
+  height: calc(var(--height-main)*2);
+  width: auto;
+}
+
+#nav-gamenav h4 {
+  text-align: center;
+  margin: 0;
+}
+
+/* 
+#nav-navbar nav li, #jumbotron nav li {
+  border-radius: .3rem;
+} 
+*/
+
+nav.j-center {
+  justify-content: center;
+}
+
+nav.j-right {
+  justify-content: flex-end;
+}
+
+nav.j-left {
+  justify-content: flex-start;
+}
+
+.container {
+  display: flex;
+  margin: 0 0 2rem 0;
+  padding: 0 1.6rem 0 1.6rem;
+  width: auto;
+}
+
+#jumbotron {
+  height: calc(var(--height-main)*10);
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* 
+#jumbotron div > * {
+  margin-left: 1rem;
+} 
+*/
+
+#jumbotron h1 {
+  margin: 0 0 .4rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  #jumbotron {
+    height: calc(var(--height-main)*8);
+    width: auto;
+  }
+
+  #jumbotron h1 {
+    font-size: 48pt;
+  }
+  
+  #nav-gamenav {
+    height: calc(var(--height-main)*2);
+    width: auto;
+  }
+}
+
+
+/* footer defaults */
+footer{
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+  width: 100%;
+  text-align: center;
+}
+@media screen and (max-width: 800px) {
+  footer * {
+    font-size: 68%
+  }
+}
+/* footer ends */

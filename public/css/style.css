@@ -4,6 +4,7 @@
   --color-w2      :#ececec;
   --color-main-bg   :#c0b9c2;
   --color-main-bg-d :#918c8b;
+  --color-main-bg-b :#131313;
   --color-text-l    :#100b11;
   --color-p         :#611420;
   --color-p2        :#ff003c; 
@@ -31,7 +32,7 @@
 html , html body{
   font-size: 100%;
   font-family: RobotoCondensed, 'Courier New', Courier, monospace;
-  background-color: var(--color-main-bg);
+  background-color: var(--color-main-bg-b);
   color: var(--color-w2);
 }
 
@@ -40,7 +41,11 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 28pt;
+  font-size: 32pt;
+}
+
+h2 {
+  font-size: 24pt;
 }
 
 li, ul, ol {
@@ -60,17 +65,7 @@ a ~ li {
   transition: var(--transition);
 }
 
-.txt-light {
-  color: var(--color-main-bg-d);
-}
-
-.txt-dark {
-  color: var(--color-text-l) !important ;
-}
-
-
 /* nav styles */
-
 nav > * {
   background-color: var(--color-text-bg);
 }
@@ -82,8 +77,8 @@ nav > * {
 }
 
 nav .svg-icon {
-  height: calc(var(--height-main)*.625);
-  width: calc(var(--height-main)*.625);
+  height: 36vw;
+  width: 36vw;
   transition: calc(var(--transition)*.5) ease;
 }
 
@@ -139,7 +134,7 @@ nav .inactive {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 button {
@@ -154,7 +149,6 @@ button {
   color: var(--color-text-l);
   background-color: var(--color-text-bg);
   transition: calc(var(--transition)*.5);
-  transition: calc(var(--transition)*.5);
 }
 
 button * {
@@ -168,10 +162,15 @@ button:hover, button:active {
   
 }
 
+footer {
+  color: var(--color-main-bg-d);
+  background-color: var(--color-text-bg-h);
+}
+
 @media screen and (min-width: 768px) {
   nav .svg-icon {
-    height: calc(var(--height-main)*.825);
-    width: calc(var(--height-main)*.825);
+    height: calc(var(--height-main)*2.8);
+    width: calc(var(--height-main)*2.8);
   }
 }
 

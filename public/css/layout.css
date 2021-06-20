@@ -1,7 +1,8 @@
 /* layouts, mobile first */
 
 :root {
-  --height-main : 5.125rem; 
+  --height-main : 5.125rem;
+  --width-main : 8rem;
   --transition: 200ms;
 }
 
@@ -21,6 +22,19 @@ html * {
 
   /* native css layout debug outliner */
   /* border: 1px solid #7fff0080; */
+}
+
+.container {
+  display: flex;
+  width: auto;
+}
+
+.cont-p {
+  padding: 1rem .8rem .8rem .8rem;
+}
+
+.cont-m {
+  margin: 0 0 2rem 0;
 }
 
 /* navs */
@@ -43,57 +57,34 @@ nav > * > * {
   padding: .4rem;
 }
 
-#nav-navbar, #nav-gamenav {
-  display: flex;
-}
-
 /* gamenavs */
 #nav-gamenav {
   justify-content: center;
   flex-direction: column;
-  height: calc(var(--height-main)*2);
+  height: auto;
   width: auto;
 }
 
-#nav-gamenav h4 {
+#nav-gamenav nav { 
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  column-gap: 16px;
+  row-gap: 16px;
+}
+
+#nav-gamenav nav * { 
+  margin: 0;
+}
+
+#nav-gamenav h2 {
   text-align: center;
   margin: 0;
 }
 
-/* 
-#nav-navbar nav li, #jumbotron nav li {
-  border-radius: .3rem;
-} 
-*/
-
-/* nav.j-center {
-  justify-content: center;
-}
-
-nav.j-right {
-  justify-content: flex-end;
-}
-
-nav.j-left {
-  justify-content: flex-start;
-} */
-
-.container {
-  display: flex;
-  padding: 0;
-  width: auto;
-}
-
-.cont-p {
-  padding: 1rem 1.6rem 1rem 1.6rem;
-}
-
-.cont-m {
-  margin: 0 0 2rem 0;
-}
-
+/* jumbo */
 #jumbotron {
-  height: calc(var(--height-main)*10);
+  height: 100vh; /*changed to full viewport height*/
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -102,15 +93,16 @@ nav.j-left {
 #jumbotron div {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 
 #jumbotron * h1 {
   margin: 0 0 .4rem 0;
+  text-align: center;
 }
 
-
+/* news */
 .btn-drop {
   align-self: center;
   width: 50px;
@@ -119,8 +111,8 @@ nav.j-left {
 
 .card-news {
   flex-grow: 0;
-  width: 100%;
-  height: calc(var(--height-main)*4);
+  width: calc(var(--height-main)*4);
+  height: calc(var(--height-main)*3);
   margin: 1rem 0 0 0;
 }
 
@@ -135,7 +127,7 @@ nav.j-left {
 }
 
 #news .toolbar {
-  flex-direction: row !important;
+  flex-direction: row;
 }
 
 #news h4 {
@@ -166,48 +158,33 @@ article {
 
 /* media resposive on desktop */
 @media screen and (min-width: 768px) {
+
   #jumbotron {
-    height: calc(var(--height-main)*8);
+    height: calc(var(--height-main)*10);
     width: auto;
-    flex-direction: row;
-    justify-content: flex-start;
     align-items: center;
   }
 
-  #jumbotron div {
-    align-items: flex-start;
+  .card-news {
+    flex-grow: 0;
+    width: calc(var(--height-main)*6.4);
+    height: calc(var(--height-main)*4);
+    margin: 1rem 0 0 0;
   }
 
   #jumbotron h1 {
     font-size: 48pt;
   }
-
-  #jumbotron .card-news {
-    height: calc(var(--height-main)*7);
-    margin-left: 2rem;
-  }
-
-  #news div {
-    align-items: center;
-  }
-
-  .card-news {
-    height: auto;
-  }
-
-  .btn-drop {
-    align-self: flex-end;
-  }
   
-  #nav-gamenav {
-    height: calc(var(--height-main)*2);
-    width: auto;
+  #nav-gamenav h2 {
+    font-size: 36pt;
   }
 }
 
 
 /* footer defaults */
 footer{
+  padding: 2pt 0 2 2pt 0;
   display: flex;
   justify-content: center;
   align-self: flex-end;
@@ -225,7 +202,7 @@ footer{
 .text-cont-box {
   border: 2px solid var(--color-text-bg);
   max-height: initial;
-} 
+}
 
 .text-overflow {
   overflow-y: scroll;

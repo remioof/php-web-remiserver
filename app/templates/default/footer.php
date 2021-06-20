@@ -1,6 +1,6 @@
 
-  <div id="nav-gamenav" class="container bg-cont-med">
-    <h4>Server Stats Portal</h4>
+  <div id="nav-gamenav" class="container cont-m cont-p bg-cont-med-alpha">
+    <h2>Game Servers</h2>
     <?php
       echo "<nav>\n";
       foreach($nav_els as $navTitle=>$navProp){
@@ -15,9 +15,9 @@
       ?>
   </div>
 
-    <footer>
-      <small><?php if($site_copyright){echo "Copyright &copy;2021 ".$site_copyright.".<br>All rights reserved.";} else echo "Copyright &copy;2021 padoru"?></small>
-    </footer>
+  <footer>
+    <small><?php if($site_copyright){echo "Copyright &copy;2021 ".$site_copyright.".<br>All rights reserved.";} else echo "Copyright &copy;2021 padoru"?></small>
+  </footer>
 
     <!-- jquery, no popper, no bootstrap bloat -->
     <script src="<?php echo $site_url;?>public/js/jquery-3.6.0.min.js"></script>

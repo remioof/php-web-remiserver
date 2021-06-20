@@ -10,8 +10,7 @@ ini_set('display_errors', 1);
 
 $content = "";
 
-require('app/_config.php');
+require_once('app/_config.php');
 include('app/modules/functions.php');
 include('app/templates/layouts/default.tpl');
-
 ?>

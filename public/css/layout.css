@@ -1,4 +1,4 @@
-/* layouts */
+/* layouts, mobile first */
 
 :root {
   --height-main : 5.125rem; 
@@ -18,6 +18,9 @@ html * {
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
   text-decoration: none;
+
+  /* native css layout debug outliner */
+  /* border: 1px solid #7fff0080; */
 }
 
 /* navs */
@@ -27,10 +30,11 @@ nav {
   margin: .8rem 0 .8rem 0;
   width: fit-content;
   height: fit-content;
+  justify-content: center;
 }
 
 nav > * {
-  margin: 0 .6rem 0 0;
+  margin: 0 .3rem 0 .3rem;
 }
 
 nav > * > * {
@@ -62,7 +66,7 @@ nav > * > * {
 } 
 */
 
-nav.j-center {
+/* nav.j-center {
   justify-content: center;
 }
 
@@ -72,39 +76,127 @@ nav.j-right {
 
 nav.j-left {
   justify-content: flex-start;
-}
+} */
 
 .container {
   display: flex;
-  margin: 0 0 2rem 0;
-  padding: 0 1.6rem 0 1.6rem;
+  padding: 0;
   width: auto;
+}
+
+.cont-p {
+  padding: 1rem 1.6rem 1rem 1.6rem;
+}
+
+.cont-m {
+  margin: 0 0 2rem 0;
 }
 
 #jumbotron {
   height: calc(var(--height-main)*10);
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-/* 
-#jumbotron div > * {
-  margin-left: 1rem;
-} 
-*/
+#jumbotron div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
 
-#jumbotron h1 {
+#jumbotron * h1 {
   margin: 0 0 .4rem 0;
 }
 
+
+.btn-drop {
+  align-self: center;
+  width: 50px;
+  height: 36px;
+}
+
+.card-news {
+  flex-grow: 0;
+  width: 100%;
+  height: calc(var(--height-main)*4);
+  margin: 1rem 0 0 0;
+}
+
+#news {
+  flex-grow: 1;
+  width: 100%;
+}
+
+#news div {
+  flex-direction: column;
+  width: 100%;
+}
+
+#news .toolbar {
+  flex-direction: row !important;
+}
+
+#news h4 {
+  padding: 0;
+  padding-left: 1.6rem;
+  margin: 0;
+}
+
+#news .container {
+  justify-content: space-between;
+}
+
+#news-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+article {
+  width: 100%;
+  height: 100%;
+  align-self: baseline;
+}
+
+#news-box * {
+  text-align: justify;
+}
+
+/* media resposive on desktop */
 @media screen and (min-width: 768px) {
   #jumbotron {
     height: calc(var(--height-main)*8);
     width: auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  #jumbotron div {
+    align-items: flex-start;
   }
 
   #jumbotron h1 {
     font-size: 48pt;
+  }
+
+  #jumbotron .card-news {
+    height: calc(var(--height-main)*7);
+    margin-left: 2rem;
+  }
+
+  #news div {
+    align-items: center;
+  }
+
+  .card-news {
+    height: auto;
+  }
+
+  .btn-drop {
+    align-self: flex-end;
   }
   
   #nav-gamenav {
@@ -128,3 +220,14 @@ footer{
   }
 }
 /* footer ends */
+
+
+.text-cont-box {
+  border: 2px solid var(--color-text-bg);
+  max-height: initial;
+} 
+
+.text-overflow {
+  overflow-y: scroll;
+  overflow-x: wrap  ;
+}

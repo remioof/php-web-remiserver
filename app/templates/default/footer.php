@@ -1,8 +1,8 @@
 
-  <div id="nav-gamenav" class="container">
+  <div id="nav-gamenav" class="container bg-cont-med">
     <h4>Server Stats Portal</h4>
     <?php
-      echo "<nav class=\"j-center\">\n";
+      echo "<nav>\n";
       foreach($nav_els as $navTitle=>$navProp){
         $nav_href = $navProp["href"];
         $nav_svg_tag = $navProp["svgTag"];

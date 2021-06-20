@@ -3,13 +3,13 @@
 //          ;w; configs         //
 //==============================//
 
-$title = "Remilia's Server";
-$site_name = "Remilia's Server";
+$title = "Remi's Server";
+$site_name = "Remi's Server";
 $site_url = "";
 $site_description = "";
 $site_keywords = "";
 
-$site_copyright = "Remilia's Server";
+$site_copyright = "Remi's Server";
 
 $enable_motd = false;
 

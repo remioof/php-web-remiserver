@@ -10,8 +10,6 @@
   <meta name="keywords" content="<?php echo $site_keywords;?>">
   <meta name="url" content="<?php echo $site_url;?>">
   <meta name="copyright" content="<?php echo $site_name;?> | <?php echo $site_url;?>">
-  <meta name="design" content="">
-  <meta name="plugin" content="">
   <!-- open graph protocol for social medias webhooks -->
   <meta property="og:title" content="<?php echo $site_name;?> | <?php echo $title;?>">
   <meta property="og:description" content="<?php echo $site_description;?>">

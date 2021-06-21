@@ -1,21 +1,17 @@
-$( ".nav-link" ).hover(
+$( '.nav-link' ).hover(
   function() {
-    //$(this).siblings('div').addClass('unhide');
     $(this).parentsUntil('nav').siblings('li').addClass('inactive');
   }, function() {
-    //$(this).siblings('div').removeClass('unhide');
     $(this).parentsUntil('nav').siblings('li').removeClass('inactive');
   }
 );
 
 
-// todo: btn-drop onclick hide and unhide news
+// $('.btn-drop').click(
+//   function () {
+//     $('.btn-drop').not(this).removeClass('hide');
+//     $(this).addClass('hide');
+// }); 
 
-// todo: fix on mobile tap?
-// $( ".nav-link" ).on( "tap", 
-// function() {
-//   $(this).parentsUntil('nav').siblings('li').addClass('svg-unfocus');
-// }, function() {
-//   $(this).parentsUntil('nav').siblings('li').removeClass('svg-unfocus');
-//   }
-// );
+$('#pane-hide').click(function() {$(this).addClass('hide'); $('#pane-show').removeClass('hide'); $('#news').parent().addClass('hide')})
+$('#pane-show').click(function() {$(this).addClass('hide'); $('#pane-hide').removeClass('hide'); $('#news').parent().removeClass('hide')})

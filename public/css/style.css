@@ -48,6 +48,17 @@ h2 {
   font-size: 24pt;
 }
 
+h5 {
+  margin-block-start: .83em;
+  margin-block-end: .4em;
+  margin-inline-start: .2em;
+}
+
+p {
+  margin-block-start: .4em;
+  margin-block-end: .2em;
+}
+
 li, ul, ol {
   list-style: none;
 }
@@ -63,6 +74,11 @@ a:hover, a:active, a:focus {
 a ~ li {
   background: var(--color-text-bg);
   transition: var(--transition);
+}
+
+hr {
+  border: 1px solid var(--color-main-bg-b);
+  margin-top: 2em;
 }
 
 /* nav styles */
@@ -86,6 +102,11 @@ nav .svg-nav {
   height: 1.4rem;
   width: 1.4rem;
   padding-bottom: calc(1.4rem*.1);
+}
+
+/* news */
+#news {
+  color: var(--color-text-l);
 }
 
 /* bgs */

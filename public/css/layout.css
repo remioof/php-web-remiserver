@@ -42,7 +42,6 @@ nav {
   display: flex;
   flex-flow: row nowrap;
   margin: .8rem 0 .8rem 0;
-  width: fit-content;
   height: fit-content;
   justify-content: center;
 }
@@ -68,7 +67,6 @@ nav > * > * {
 #nav-gamenav nav { 
   display: grid;
   grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
   column-gap: 16px;
   row-gap: 16px;
 }
@@ -148,9 +146,17 @@ nav > * > * {
 
 article {
   width: 100%;
-  height: 100%;
+  height: calc(var(--height-main)*2);
+  padding: 0 10pt 0 10pt;
   align-self: baseline;
+  overflow-y: scroll;
 }
+
+article li {
+  list-style: circle;
+  padding-left: 1em;
+}
+
 
 #news-box * {
   text-align: justify;
@@ -174,6 +180,10 @@ article {
 
   #jumbotron h1 {
     font-size: 48pt;
+  }
+
+  article {
+  height: calc(var(--height-main)*3);
   }
   
   #nav-gamenav h2 {

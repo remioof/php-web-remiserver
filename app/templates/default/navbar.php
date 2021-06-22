@@ -1,5 +1,5 @@
-<nav id="navbar" class="container">
-  <ol class="border-ends">
+<nav id="navbar" class="container hide">
+  <ol>
     <a class="nav-link active" href="#">Home</a>
     <a class="nav-link active" href="#">Server Rules</a>
     <a class="nav-link active" href="#">News/Changelog</a>
@@ -18,4 +18,6 @@
     ?>
   </ol>
 </nav>
+
+<button id="burger">&#x2630</button>
 

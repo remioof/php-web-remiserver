@@ -37,7 +37,7 @@ html * {
   margin: 0 0 2rem 0;
 }
 
-/* navs */
+/* basic nav layout init */
 nav {
   display: flex;
   flex-flow: row nowrap;
@@ -56,26 +56,30 @@ nav > * > * {
   padding: .4rem;
 }
 
-/* gamenavs */
-
+/* navbar */
 #navbar {
   position: absolute;
   top: 0;
   height: auto;
   width: 100%;
+  flex-direction: column;
+}
 
+#navbar ol:first-child {
+  flex-direction: column;
 }
 
 #navbar, #navbar ol {
   text-align: center;
   display: flex;
   justify-content: space-between;
-  align-items: center ;
+  align-items: center;
   padding: 0;
 }
 
 #navbar ol {
-  margin: .8rem 1.6rem 0 1.6rem;
+  align-items: center;
+  margin: .6125rem 0 .6125rem 0;
 }
 
 #navbar nav * { 
@@ -124,6 +128,19 @@ nav > * > * {
 
 /* media resposive on desktop */
 @media screen and (min-width: 768px) {
+
+  #navbar {
+    padding-top: 1rem;
+    flex-direction: row;
+  }
+
+  #navbar ol {
+    margin: 0 1.6rem 0 1.6rem;
+  }
+
+  #navbar ol:first-child {
+    flex-direction: row;
+  }
 
   #jumbotron {
     height: calc(var(--height-main)*10);

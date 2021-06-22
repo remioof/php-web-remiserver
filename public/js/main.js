@@ -7,11 +7,8 @@ $( '.nav-link' ).hover(
 );
 
 
-// $('.btn-drop').click(
-//   function () {
-//     $('.btn-drop').not(this).removeClass('hide');
-//     $(this).addClass('hide');
-// }); 
-
-// $('#pane-hide').click(function() {$(this).addClass('hide'); $('#pane-show').removeClass('hide'); $('#news').parent().addClass('hide')})
-// $('#pane-show').click(function() {$(this).addClass('hide'); $('#pane-hide').removeClass('hide'); $('#news').parent().removeClass('hide')})
+$('#burger').click(
+  function(){
+    $('#navbar').toggleClass('hide')
+  }
+);

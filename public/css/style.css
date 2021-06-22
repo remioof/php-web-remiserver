@@ -63,12 +63,8 @@ li, ul, ol {
   list-style: none;
 }
 
-a {
+.nav-link {
   color: var(--color-w2);
-}
-
-a:hover, a:active, a:focus {
-  color: var(--color-text-h);
 }
 
 a ~ li {
@@ -88,6 +84,7 @@ hr {
 
 .nav-social {
   background-color: var(--color-text-bg);
+  transition: calc(var(--transition)*1);
 }
 
 .nav-social a {
@@ -116,6 +113,26 @@ nav .svg-icon {
 nav .svg-nav {
   height: 1.4rem;
   width: 1.4rem;
+}
+
+#navbar {
+  margin-top: 0;
+  background-color: var(--color-text-bg);
+  transition: 200ms;
+}
+
+#burger {
+  /* or trigram of heaven, borg */
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.6em;
+  height: 1.6em;
+  padding-bottom: 4pt;
+  font-size: 2em;
 }
 
 /* bgs */
@@ -148,15 +165,23 @@ nav .svg-nav {
 }
 
 /* dom events related */
-nav a:hover .svg-fill, nav a:active .svg-fill {
-  fill: var(--color-text-h);
+
+
+.nav-link:hover, .nav-link:active, .nav-link:focus {
+  color: var(--color-text-h);
   transition: calc(var(--transition)*1);
-  rotate: 3.14deg;
-  scale: 98%;
+  /* background-color: var(--color-text-bg-h); */
+}
+
+nav a:hover .svg-fill, nav a:active .svg-fill,
+nav .nav-social:hover, nav .nav-social:active	
+{
+  fill: var(--color-text-h);
+  background-color: var(--color-p);
+  transition: calc(var(--transition)*1);
 }
 
 a:hover, a:active {
-  background-color: var(--color-text-bg-h);
   color: var(--color-text-h);
   transition: calc(var(--transition)*1);
 }
@@ -167,7 +192,10 @@ nav .inactive {
 }
 
 .hide {
-  display: none !important;
+  /* display: none !important; */
+  transform: translateY(-100%);
+  transition: 200ms;
+  opacity: 0%;
 }
 
 button {
@@ -201,21 +229,25 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
-  /* nav .svg-icon {
-    height: calc(var(--height-main)*2.8);
-    width: calc(var(--height-main)*2.8);
-  } */
+  #navbar {
+    display: flex;
+    background: none;
+    transform: translateY(0);
+  }
+
+  #burger {
+    display: none;
+    background: none;
+  }
+
+  .hide {
+    transform: translateY(0);
+    transition: 200ms;
+    opacity: 100%;
+  }
 }
 
-/* experimental placeholders for unassigned styles */
+/* experimental placeholders or unassigned styles */
 .filter-bg-blur {
   backdrop-filter: blur(10px) brightness(80%);
 } 
-
-.border-ends * {
-  border-left: 2px solid var(--color-main-bg-d-alpha);
-}
-
-.border-ends *:last-child {
-  border-right: 2px solid var(--color-main-bg-d-alpha);
-}

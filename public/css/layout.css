@@ -30,7 +30,7 @@ html * {
 }
 
 .cont-p {
-  padding: 1rem .8rem .8rem .8rem;
+  padding: .2rem .8rem .2rem .8rem;
 }
 
 .cont-m {
@@ -42,7 +42,7 @@ nav {
   display: flex;
   flex-flow: row nowrap;
   margin: .8rem 0 .8rem 0;
-  height: fit-content;
+  height: auto;
   justify-content: center;
 }
 
@@ -57,27 +57,35 @@ nav > * > * {
 }
 
 /* gamenavs */
-#nav-gamenav {
-  justify-content: center;
-  flex-direction: column;
+
+#navbar {
+  position: absolute;
+  top: 0;
   height: auto;
-  width: auto;
+  width: 100%;
+
 }
 
-#nav-gamenav nav { 
-  display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 16px;
-  row-gap: 16px;
-}
-
-#nav-gamenav nav * { 
-  margin: 0;
-}
-
-#nav-gamenav h2 {
+#navbar, #navbar ol {
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center ;
+  padding: 0;
+}
+
+#navbar ol {
+  margin: .8rem 1.6rem 0 1.6rem;
+}
+
+#navbar nav * { 
   margin: 0;
+}
+
+#navbar a {
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: clip;
 }
 
 /* jumbo */
@@ -114,54 +122,6 @@ nav > * > * {
   margin: 1rem 0 0 0;
 }
 
-#news {
-  flex-grow: 1;
-  width: 100%;
-}
-
-#news div {
-  flex-direction: column;
-  width: 100%;
-}
-
-#news .toolbar {
-  flex-direction: row;
-}
-
-#news h4 {
-  padding: 0;
-  padding-left: 1.6rem;
-  margin: 0;
-}
-
-#news .container {
-  justify-content: space-between;
-}
-
-#news-box {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-article {
-  width: 100%;
-  height: calc(var(--height-main)*2);
-  padding: 0 10pt 0 10pt;
-  align-self: baseline;
-  overflow-y: scroll;
-}
-
-article li {
-  list-style: circle;
-  padding-left: 1em;
-}
-
-
-#news-box * {
-  text-align: justify;
-}
-
 /* media resposive on desktop */
 @media screen and (min-width: 768px) {
 
@@ -171,22 +131,11 @@ article li {
     align-items: center;
   }
 
-  .card-news {
-    flex-grow: 0;
-    width: calc(var(--height-main)*6.4);
-    height: calc(var(--height-main)*4);
-    margin: 1rem 0 0 0;
-  }
-
   #jumbotron h1 {
     font-size: 48pt;
   }
 
-  article {
-  height: calc(var(--height-main)*3);
-  }
-  
-  #nav-gamenav h2 {
+  #navbar h2 {
     font-size: 36pt;
   }
 }
@@ -194,7 +143,7 @@ article li {
 
 /* footer defaults */
 footer{
-  padding: 2pt 0 2 2pt 0;
+  padding: 2pt 0 2pt 0;
   display: flex;
   justify-content: center;
   align-self: flex-end;

@@ -13,5 +13,5 @@ $( '.nav-link' ).hover(
 //     $(this).addClass('hide');
 // }); 
 
-$('#pane-hide').click(function() {$(this).addClass('hide'); $('#pane-show').removeClass('hide'); $('#news').parent().addClass('hide')})
-$('#pane-show').click(function() {$(this).addClass('hide'); $('#pane-hide').removeClass('hide'); $('#news').parent().removeClass('hide')})
+// $('#pane-hide').click(function() {$(this).addClass('hide'); $('#pane-show').removeClass('hide'); $('#news').parent().addClass('hide')})
+// $('#pane-show').click(function() {$(this).addClass('hide'); $('#pane-hide').removeClass('hide'); $('#news').parent().removeClass('hide')})

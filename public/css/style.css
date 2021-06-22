@@ -11,7 +11,7 @@
   --color-text-h    :#ebe356;
   --color-text-bg   :#c96724;
   --color-text-bg-h :#514759;
-  --color-main-bg-alpha   :#c0b9c266;
+  --color-main-bg-alpha   :#c1acc746;
   --color-main-bg-d-alpha :#918c8b66;
 
 }
@@ -64,7 +64,7 @@ li, ul, ol {
 }
 
 a {
-  color: var(--color-text-l);
+  color: var(--color-w2);
 }
 
 a:hover, a:active, a:focus {
@@ -77,36 +77,45 @@ a ~ li {
 }
 
 hr {
-  border: 1px solid var(--color-main-bg-b);
+  border-bottom: 1px solid var(--color-main-bg-d);
   margin-top: 2em;
 }
 
 /* nav styles */
-nav > * {
+/* nav > * {
+  background-color: var(--color-text-bg);
+} */
+
+.nav-social {
   background-color: var(--color-text-bg);
 }
 
+.nav-social a {
+  color: var(--color-text-l);
+}
+
 .svg-fill {
+  fill: var(--color-w2);
+  transition: var(--transition);
+}
+
+.nav-social .svg-fill {
   fill: var(--color-text-l);
   transition: var(--transition);
-
 }
 
 nav .svg-icon {
-  height: 36vw;
-  width: 36vw;
+  height: 3.6rem;
+  width: 3.6rem;
+  padding: .2rem;
+  border: 1.2px solid var(--color-w2);
+  border-radius: .5rem;
   transition: calc(var(--transition)*.5) ease;
 }
 
 nav .svg-nav {
   height: 1.4rem;
   width: 1.4rem;
-  padding-bottom: calc(1.4rem*.1);
-}
-
-/* news */
-#news {
-  color: var(--color-text-l);
 }
 
 /* bgs */
@@ -139,13 +148,16 @@ nav .svg-nav {
 }
 
 /* dom events related */
-nav li:hover .svg-fill, nav li:active .svg-fill {
+nav a:hover .svg-fill, nav a:active .svg-fill {
   fill: var(--color-text-h);
   transition: calc(var(--transition)*1);
+  rotate: 3.14deg;
+  scale: 98%;
 }
 
-nav li:hover, nav li:active {
+a:hover, a:active {
   background-color: var(--color-text-bg-h);
+  color: var(--color-text-h);
   transition: calc(var(--transition)*1);
 }
 
@@ -185,17 +197,25 @@ button:hover, button:active {
 
 footer {
   color: var(--color-main-bg-d);
-  background-color: var(--color-text-bg-h);
+  background-color: var(--color-main-bg-bor-text-bg-h);
 }
 
 @media screen and (min-width: 768px) {
-  nav .svg-icon {
+  /* nav .svg-icon {
     height: calc(var(--height-main)*2.8);
     width: calc(var(--height-main)*2.8);
-  }
+  } */
 }
 
 /* experimental placeholders for unassigned styles */
 .filter-bg-blur {
   backdrop-filter: blur(10px) brightness(80%);
 } 
+
+.border-ends * {
+  border-left: 2px solid var(--color-main-bg-d-alpha);
+}
+
+.border-ends *:last-child {
+  border-right: 2px solid var(--color-main-bg-d-alpha);
+}

@@ -177,7 +177,7 @@ nav a:hover .svg-fill, nav a:active .svg-fill,
 nav .nav-social:hover, nav .nav-social:active	
 {
   fill: var(--color-text-h);
-  background-color: var(--color-p);
+  background-color: var(--color-main-bg-b);
   transition: calc(var(--transition)*1);
 }
 
@@ -189,6 +189,11 @@ a:hover, a:active {
 nav .inactive {
   opacity: 60%;
   transition: calc(var(--transition)*.5);
+}
+
+.disabled, .disabled:hover{
+  pointer-events: none !important;
+  opacity: 60% !important;
 }
 
 .hide {

@@ -1,12 +1,12 @@
 <nav id="navbar" class="container hide">
-  <ol>
-    <a class="nav-link active" href="#">Home</a>
-    <a class="nav-link active" href="#">Server Rules</a>
-    <a class="nav-link active" href="#">News/Changelog</a>
-    <a class="nav-link active" href="#">Community Artworks</a>
+  <ol id="navbar-links">
+    <a class="nav-link" href="#home">Home</a>
+    <a class="nav-link" href="#rules">Server Rules</a>
+    <a class="nav-link" href="#news">News/Changelog</a>
+    <a class="nav-link disabled" href="#MegaorDrive">Preload Files</a>
   </ol>
 
-  <ol>
+  <ol id="navbar-servers">
   <?php
       foreach($nav_els as $navTitle=>$navProp){
         $nav_href = $navProp["href"];

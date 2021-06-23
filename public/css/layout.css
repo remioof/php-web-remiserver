@@ -174,12 +174,6 @@ footer{
 }
 /* footer ends */
 
-
-.text-cont-box {
-  border: 2px solid var(--color-text-bg);
-  max-height: initial;
-}
-
 .text-overflow {
   overflow-y: scroll;
   overflow-x: wrap  ;

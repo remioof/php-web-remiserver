@@ -1,8 +1,8 @@
-$( '.nav-link' ).hover(
+$( '#navbar-servers > .nav-link' ).hover(
   function() {
-    $(this).parentsUntil('nav').siblings('li').addClass('inactive');
+    $(this).siblings('a').not(this).addClass('inactive');
   }, function() {
-    $(this).parentsUntil('nav').siblings('li').removeClass('inactive');
+    $(this).siblings('a').not(this).removeClass('inactive');
   }
 );
 

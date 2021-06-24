@@ -18,24 +18,31 @@ $enable_motd = false;
 $extHref_discord = "https://discord.gg/B8phHEw";
 $extHref_steamGroup = "https://steamcommunity.com/groups/REMSCS";
 
-$nav_els = array(
-  "Sven Co-op" => array(
+$nav_els = [
+  "Sven Co-op" => [
     "svgTag"=>"hl",
     "href"=>"#svenCoop"
-  ),
-  "Unturned" => array(
+  ],
+  "Unturned" => [
     "svgTag"=>"unturned",
     "href"=>"#unturned"
-  ),
-  "Left4Dead 2" => array(
+  ],
+  "Left4Dead 2" => [
     "svgTag"=>"l4d",
     "href"=>"#l4d2"
-  ),
-  "Minecraft" => array(
+  ],
+  "Minecraft" => [
     "svgTag"=>"minecraft",
     "href"=>"#minecraft"
-  ),
-);
+  ],
+];
+
+$rules = [
+  "Be respectful",
+  "Be rootin",
+  "Be tootin",
+  "Be kind",
+];
 
 $nav_href_icon = "public/img/icon.svg";
 $nav_href_glyph = "public/img/glyph.svg";

@@ -9,6 +9,7 @@ $( '#navbar-servers > .nav-link' ).hover(
 
 $('#burger').click(
   function(){
-    $('#navbar').toggleClass('hide')
+    $('#navbar').toggleClass('hide');
+    $('#burger').html($('#burger').html() == '☰' ? 'X' : '☰');
   }
 );

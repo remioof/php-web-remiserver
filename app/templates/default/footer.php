@@ -3,7 +3,7 @@
     </footer>
 
     <!-- jquery, no popper, no bootstrap bloat -->
-    <script src="<?php echo $site_url;?>public/js/jquery-3.6.0.min.js"></script>
-    <script src="<?php echo $site_url;?>public/js/main.js"></script>
+    <script src="<?php echo $site_url;?>public/js/jquery-3.6.0.min.js" defer></script>
+    <script src="<?php echo $site_url;?>public/js/main.js" defer></script>
   </body>
 </html>

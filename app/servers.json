@@ -1,0 +1,33 @@
+{
+  "svencoop" :{
+    "title": "Sven Co-op",
+    "gq_conf_type": "halflife",  
+    "gq_conf_address": "remiserver.asuscomm.com",
+    "gq_conf_port":"",
+    "site_svgTag": "hl"
+  },
+
+  "unturned" :  {
+    "title": "Unturned",
+    "gq_conf_type":"",
+    "gq_conf_address": "",
+    "gq_conf_port":"",
+    "site_svgTag": "unturned"
+  },
+
+  "l4d2" : {
+    "title": "Left4Dead 2",  
+    "gq_conf_type":"left4dead2",
+    "gq_conf_address": "remiserver.asuscomm.com",
+    "gq_conf_port":"27099",
+    "site_svgTag": "l4d"
+  },
+
+  "minecraft" :  {
+    "title": "Minecraft",
+    "gq_conf_type":"",
+    "gq_conf_address": "",
+    "gq_conf_port":"",
+    "site_svgTag": "minecraft"
+  }
+}

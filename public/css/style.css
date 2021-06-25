@@ -37,6 +37,8 @@ html , html body{
 
 h1, h2, h3, h4 {
   font-family: Unispace, Helvetica, Arial, sans-serif;
+  margin-block-start: .4em;
+  margin-block-end: .4em;
 }
 
 h1 {
@@ -50,7 +52,7 @@ h2 {
 h5 {
   margin-block-start: .83em;
   margin-block-end: .4em;
-  margin-inline-start: .2em;
+  margin-inline-start: .2em;  
 }
 
 p {
@@ -135,7 +137,7 @@ nav .svg-nav {
 }
 
 #rules li {
-  padding: .2em 0 .4em 2rem ;
+  margin: .2em 0 .4em 2rem ;
   list-style: decimal;
 }
 
@@ -163,14 +165,19 @@ nav .svg-nav {
 .bg-h-light {background-color: var(--color-text-hightlight);}
 .bg-h-med {background-color: var(--color-text-bg);}
 .bg-h-dark {background-color: var(--color-text-bg-h);}
+.bg-white {background-color: var(--color-main-white-w);}
+
+.text-color-dk * {color: var(--color-text-bl);}
 
 .border-cont {
   border-bottom: 4.8px solid var(--color-text-bg);
 }
 
-/* dom events related */
+.bg-cross {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ececec10' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
 
-
+/* dom events */
 .nav-link:hover, .nav-link:active, .nav-link:focus {
   color: var(--color-text-hightlight);
   transition: calc(var(--transition)*1);

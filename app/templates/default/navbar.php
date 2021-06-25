@@ -8,12 +8,13 @@
 
   <ol id="navbar-servers">
   <?php
-      foreach($nav_els as $navTitle=>$navProp){
-        $nav_href = $navProp["href"];
-        $nav_svg_tag = $navProp["svgTag"];
-        $nav_title = $navTitle;
-
-        echo "<a href=\"?p=server\" class=\"nav-link\"><svg class=\"svg-icon svg-fill\"><use xlink:href=\"$site_url$nav_href_icon#$nav_svg_tag\"></use></svg></a>\n";
+      foreach($serverli as $navTitle=>$navProp){
+        $nav_href = preg_replace('/\s*/', '', $navTitle);
+        $nav_href = strtolower($nav_href);
+        
+        $nav_svg_tag = $navProp["site_svgTag"];
+        
+        echo "<a href=\"?p=server&g=$nav_href\" class=\"nav-link\"><svg class=\"svg-icon svg-fill\"><use xlink:href=\"$site_url$nav_href_icon#$nav_svg_tag\"></use></svg></a>\n";
       }
     ?>
   </ol>

@@ -12,6 +12,7 @@ html, body {
   margin: 0;
   width: 100%;
   height: 100vh;
+  position: absolute;
 }
 
 html * {
@@ -23,6 +24,17 @@ html * {
   /* native css layout debug outliner */
   /* border: 1px solid #7fff0080; */
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  border-top: 1px solid grey;
+  padding: .2rem 0 .2rem 0;
+}
+
 
 .container {
   display: flex;
@@ -202,4 +214,9 @@ footer{
 .text-overflow {
   overflow-y: scroll;
   overflow-x: wrap  ;
+}
+
+.obj-rotate-90 {
+  position: absolute;
+  transform: rotate(-90deg);
 }

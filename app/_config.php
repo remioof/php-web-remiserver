@@ -17,25 +17,7 @@ $enable_motd = false;
 //vars
 $extHref_discord = "https://discord.gg/B8phHEw";
 $extHref_steamGroup = "https://steamcommunity.com/groups/REMSCS";
-
-$nav_els = [
-  "Sven Co-op" => [
-    "svgTag"=>"hl",
-    "href"=>"#svenCoop"
-  ],
-  "Unturned" => [
-    "svgTag"=>"unturned",
-    "href"=>"#unturned"
-  ],
-  "Left4Dead 2" => [
-    "svgTag"=>"l4d",
-    "href"=>"#l4d2"
-  ],
-  "Minecraft" => [
-    "svgTag"=>"minecraft",
-    "href"=>"#minecraft"
-  ],
-];
+$serverli = json_decode(file_get_contents('app/servers.json'), true);
 
 $rules = [
   "Be respectful",

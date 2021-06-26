@@ -1,5 +1,5 @@
 <?php
-$server_addr = "None";
+$server_addr = "";
 $server_port = "";
 $server_title = "There's no server available";
 $server_isOnline = 0;
@@ -22,24 +22,25 @@ if(isset($_GET['g'])){
     $server_isOnline = $gqfetch[0]['gq_online']; 
     $server_playerCount = $gqfetch[0]['num_players'];
     $server_players = $gqfetch[0]['players'];
+
+    if($server_port){$server_port = ":".$server_port;}
     //print_r($gqfetch);
   }
 }
 
-
-
-
 ?>
-<div id="profile-server" class="container cont-m-top cont-m cont-w bg-white text-color-dk">
-  <h2><?php echo $server_title?></h2>
-  <!-- <h4>status :<span><$server_isOnline?></span></h4> -->
+<div id="profile-server" class="container cont-m-top cont-m cont-w text-color-dk">
+  <canvas width="48px" height="240px" style="background-color: grey"></canvas>
+    
+  <div class="cont-p cont-w-auto cont-m-l bg-white cont-fl-col">
+    <h2><?php echo $server_title?></h2>
+    <?php if($server_addr){echo "<h4><a class=\"nav-social cont-p\"  href=\"steam://connect/".$server_addr.$server_port."\">Connect to Server</a></h4>";}?>
+  </div>
 </div>
 
 <div class="container cont-m cont-p cont-w bg-white text-color-dk">
   <table class="table">
-    <thead>
-      <tr><th>player</th><th>playtime</th></tr>
-    </thead>
+    <thead><tr><th>player</th><th>been gaming for</th></tr></thead>
     <tbody>
       <?php 
       if($server_isOnline && $server_playerCount){
@@ -47,7 +48,7 @@ if(isset($_GET['g'])){
           echo "<tr><td>".$player["name"]."</td><td>".formatTime($player["time"])." minutes</td></tr>";
         };
       } 
-      else echo "<tr><td>no online player,</td><td>or in server is in levelchange state, or even offline</td></tr>";
+      else echo "<tr><td>no one's online player,</td><td>or in server is in levelchange state</td></tr>";
       ?>
     </tbody>
   </table>

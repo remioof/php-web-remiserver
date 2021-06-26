@@ -2,7 +2,7 @@
   <ol id="navbar-links">
     <a class="nav-link" href="?p=home">Home</a>
     <a class="nav-link" href="?p=rules">Server Rules</a>
-    <a class="nav-link" href="?p=news">News/Changelog</a>
+    <a class="nav-link disabled" href="?p=news">News/Changelog</a>
     <a class="nav-link disabled" href="#MegaorDrive">Preload Files</a>
   </ol>
 

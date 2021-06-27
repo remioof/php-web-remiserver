@@ -23,7 +23,8 @@ $rules = [
   "Be respectful",
   "Be rootin",
   "Be tootin",
-  "Be kind",
+  "and by god be shootin <br><br>      but most of all <br><br>",
+  "<i>Be kind</i>",
 ];
 
 $nav_href_icon = "public/img/icon.svg";

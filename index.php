@@ -8,8 +8,8 @@ error_reporting(0);
 require_once('app/_config.php');
 require('app/includes/functions.php');
 
-require_once('app/includes/GameQ.php');
-$gq = new GameQ();
+require __DIR__ . '/app/includes/SourceQuery/bootstrap.php';
+
 
 include('app/templates/default/head.php');
 include('app/templates/default/navbar.php');
@@ -31,11 +31,11 @@ if(isset($_GET['p'])){
       break;
 
     default:
-      include('app/templates/jumbotron.php');
+      include('app/templates/page_home.php');
       break;
     }
 } else {
-  include('app/templates/jumbotron.php');
+  include('app/templates/page_home.php');
 }
 include('app/templates/default/footer.php');
 ?>

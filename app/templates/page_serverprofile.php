@@ -7,15 +7,14 @@ define( 'SQ_ENGINE',      SourceQuery::SOURCE );
 
 $Query = new SourceQuery( );
 
+$g = "";
 $error = "";
 $server_addr = "";
 $server_port = "";
 $server_title = "There's no server";
 $server_info = [];
 $server_players = [];
-
-$server_info_nametable = ['HostName','Map', 'Version', 'Players','MaxPlayers'];
-//$server_players_nametable = ['Name','Frags', 'TimeF'];
+$server_rules = [];
 
 if(isset($_GET['g'])){
   $g = $_GET['g'];
@@ -31,8 +30,11 @@ if(isset($_GET['g'])){
       
       $server_info = $Query->GetInfo();
       $server_players = $Query->GetPlayers();
+      $server_rules = $Query->GetRules();
       
+      // nametable refer to _config.php
       $server_info = tuncrateList($server_info, $server_info_nametable);
+      $server_rules = tuncrateList($server_rules, $server_rules_nametable);
     }
     catch( Exception $e )
     {
@@ -47,23 +49,23 @@ if(isset($_GET['g'])){
 }
 ?>
 
-<?php if($server_title):?>
-  <div class="container cont-m-top cont-m cont-w ">
+<?php if($server_title): //Server Title Jumbo?>
+  <div class="container cont-m-top cont-m cont-w">
     <?php 
       if(!empty($server_info) && $server_info["Players"] !== 0){echo "<canvas width=\"24px\" height=\"auto\" style=\"background-color: green\"></canvas>";}
       elseif(!empty($server_info)){echo "<canvas width=\"24px\" height=\"auto\" style=\"background-color: #ebe356\"></canvas>";}
       else {echo "<canvas width=\"24px\" height=\"auto\" style=\"background-color: red\"></canvas>";} // might need to find a better way to do this
       ?>
-    <div class="cont-p cont-w-auto bg-cont-med-alpha cont-fl-col">
+    <div class="cont-p cont-w-auto bg-cont-med-alpha <?php echo "bg-game-".$g;?> cont-fl-col">
       <h2><?php echo $server_title?></h2>
       <?php if($server_port){$server_port = ":".$server_port;}?>
-      <?php if($server_addr){echo "<h4 id=\"steam-connect\"><a class=\"nav-social cont-p\"  href=\"steam://connect/".$server_addr.$server_port."\">Connect to The Server</a></h4>";}?>
+      <?php if($server_addr){echo "<h4 id=\"steam-connect\"><a class=\"nav-social\" style=\"padding: .2rem .4rem .2rem .4rem\" href=\"steam://connect/".$server_addr.$server_port."\">Connect to The Server</a></h4>";}?>
     </div>
   </div>
 <?php endif; ?>
 
 
-<?php if($error):?>
+<?php if($error): //Display if error?>
   <div class="container cont-m-top cont-m cont-w text-color-lg cont-fl-col">  
     <h2>oops somethign goes worng ;w;</h2>
     <h4>pls reload the page, also sun voted no</h4>
@@ -71,7 +73,7 @@ if(isset($_GET['g'])){
   </div>
 <?php else: ?>
 
-  <?php if(!empty($server_info)):?>
+  <?php if(!empty($server_info)): //if no error: Server info?>
   <div class="container cont-m cont-p cont-w cont-fl-col bg-cont-med-alpha ">
     <h3>Server Info</h3>
     <table id="table-server-info" class="table">      
@@ -80,11 +82,11 @@ if(isset($_GET['g'])){
 
         <tr><td style="width: 8em"><?php echo htmlspecialchars($infokey)?></td>
         <td><?php
-            if(is_array($infoval)){echo "<pre>"; ": ".print_r($infoval); echo "</pre>";} 
+            if(is_array($infoval)){echo "<pre>"; " : ".print_r($infoval); echo "</pre>";} 
             else {
-              if($infoval === true){echo ": ".'true';}
-              else if($infoval === false){echo ": ".'false';}
-              else{echo ": ".htmlspecialchars($infoval);}}
+              if($infoval === true){echo " : ".'true';}
+              else if($infoval === false){echo " : ".'false';}
+              else{echo " : ".htmlspecialchars($infoval);}}
               ?></td></tr>
       <?php endforeach; ?>
 
@@ -94,23 +96,46 @@ if(isset($_GET['g'])){
   <?php endif; ?>
 
 
-  <?php if(!empty($server_players)):?>
-  <div class="container cont-m cont-p cont-w bg-cont-med-alpha ">
-    <table id="table-server-players" class="table">
-      <thead><tr><th>Player</th><th style="width: 8em">Frags</th><th style="width: 8em">been gaming for</th></tr></thead>
-      <tbody>
-      <?php foreach($server_players as $player):?>
+  <?php if(!empty($server_players)): //if no error: Server current players?>
+    <div class="container cont-w cont-fl-auto">
+      <div class="container cont-m cont-p cont-fl-col bg-cont-med-alpha " style="margin-bottom: auto;">
+      <h3>Players</h3>
+      <table id="table-server-players" class="table">
+        <thead><tr><th>Player</th><th style="width: 4em">Frags</th><th style="width: 4em">Time</th></tr></thead>
+        <tbody>
+        <?php foreach($server_players as $player):?>
+          <tr>
+            <td><?php echo htmlspecialchars( $player[ 'Name' ] ); ?></td>
+            <td><?php echo $player[ 'Frags' ]; ?></td>
+            <td><?php echo $player[ 'TimeF' ]; ?></td>
+          </tr>
+        <?php endforeach;?>
+        </tbody>
+      </table>
+    </div>
 
-        <tr>
-          <td><?php echo htmlspecialchars( $player[ 'Name' ] ); ?></td>
-          <td><?php echo $player[ 'Frags' ]; ?></td>
-          <td><?php echo $player[ 'TimeF' ]; ?></td>
-        </tr>
-      
-      <?php endforeach;?>
-      </tbody>
-    </table>
+    <?php if(!empty($server_rules)): //if no error and has player: Server rules?>
+      <div class="container cont-m cont-p cont-w cont-fl-col bg-cont-med-alpha">
+        <h3>Server Rules</h3>
+        <table id="table-server-rules" class="table">      
+          <tbody>
+          <?php foreach($server_rules as $infokey => $infoval):?>
+            <tr><td style="width: 10em"><?php echo htmlspecialchars($infokey)?></td>
+            <td><?php
+                if(is_array($infoval)){echo "<pre>"; " : ".print_r($infoval); echo "</pre>";} 
+                else {
+                  if($infoval === true){echo " : ".'true';}
+                  else if($infoval === false){echo " : ".'false';}
+                  else{echo " : ".htmlspecialchars($infoval);}}
+                  ?></td></tr>
+          <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+    <?php endif; ?>
   </div>
   <?php endif;?>
+
+
 
 <?php endif; ?>

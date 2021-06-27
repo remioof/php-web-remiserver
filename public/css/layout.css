@@ -60,6 +60,14 @@ html * {
   flex-direction: column;
 }
 
+.cont-fl-auto {
+  flex-direction: column;
+}
+
+.cont-fl-auto > *:last-child {
+  margin-top: 2rem;
+}
+
 .cont-m-top {
   margin-top: var(--height-main);
 }
@@ -165,10 +173,18 @@ table {
   overflow-x: hidden;
 }
 
+thead {
+  height: 3em;
+  border-top: 2px solid grey;
+}
+
 td {
   text-align: left;
   border-top: 1px solid grey;
   padding: .3rem 0 .3rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 tbody *:first-child{
@@ -179,7 +195,7 @@ tbody td{
   text-align: center;
 }
 
-#table-server-info td{
+#table-server-info td, #table-server-rules td{
   text-align: left;
 }
 
@@ -220,6 +236,15 @@ tbody{
 
   .cont-border {
     border-radius: 8px;
+  }
+
+  .cont-fl-auto {
+    flex-direction: row;
+  }
+
+  .cont-fl-auto > *:last-child {
+    margin-left: 12px;
+    margin-top: 0;
   }
 }
 

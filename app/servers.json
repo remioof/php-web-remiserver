@@ -2,7 +2,7 @@
   "svencoop" :{
     "title": "Sven Co-op",
     "gq_conf_address": "remiserver.asuscomm.com",
-    "gq_conf_port":27015,
+    "gq_conf_port": 27015,
     "site_svgTag": "hl"
   },
 

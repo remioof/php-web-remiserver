@@ -1,5 +1,21 @@
 <!-- mockup --> 
-<style>
+<?php 
+  //$post_number = str_pad($iter, 4, '0', STR_PAD_LEFT);
+
+  // $news_data_structure? any ideas?
+  // Array
+  // (
+  //     [post_number] => Array
+  //         (
+  //             [post_date] => str
+  //             [post_title] => str
+  //             [post_tag] => Array (str)
+  //             [post_content] => str
+  //         )
+  //  );
+?>
+
+<style><?php ob_start();?>
   /* style overrides , won't be a good idea to use id selector */
   h3, h4 {
     margin: .2rem 0 .5rem 0;
@@ -7,6 +23,10 @@
     padding-block-end: .4em;
     padding-inline-start: 1rem;
     padding-inline-end: 1rem;
+  }
+
+  article h3 {
+    border-left: 5px solid grey;
   }
   
   p {
@@ -18,7 +38,7 @@
     list-style: decimal;
   }
 
-  article a {
+  article a, article a:visited {
     color: skyblue;
   }
 
@@ -26,41 +46,41 @@
     margin: .2rem;
   }
 
-</style>
-<div class="container cont-m-top cont-w cont-fl-col">
-  
-  <?php for($iter = 0; $iter <=2; $iter++): ?>
+  pre {
+    margin: 0;
+    padding: 0;
+  }
+
   <?php 
-  //dummy
-  $post_number = str_pad($iter, 4, '0', STR_PAD_LEFT);
-  $post_title = "chg-log"
-  ?>
+  $styles = ob_get_clean();
+  echo minify_css($styles);
+  ?></style>
 
-
-
+<div class="container cont-m-top cont-w cont-fl-col">
   <div class="container cont-m cont-fl-col bg-cont-med-alpha">
-    <h4 style="border-bottom: 2px solid #918c8b; border-top: 2px solid #918c8b"><?php echo $post_title?> <?php echo $post_number?><span style="float: right; padding-right:1rem">01/01/21</span></h4>
+    <h4 style="border-bottom: 2px solid #918c8b; border-top: 2px solid #918c8b">Optional Header<span style="float: right; padding-right:1rem">01/01/21</span></h4>
+    <pre style="margin-left: 1rem;"><u><a href="#">General&nbsp;</a></u>/&nbsp;<u><a href="#">Left4Dead2&nbsp;</a></u></pre>
     <article class="container cont-p cont-fl-col">
-      <h3>Headings 3</h3>
-      <h4>Headings 4</h4>
-      <p>content, long paragraph. now here's some lorem ipsum fact <i><b>motherfucker</b></i>, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <p>content, long paragraph, justified. <br> now here's some lorem ipsum fact <i><b>motherfucker</b></i>, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
       
       <p>Also <i>any</i> <u>inline markup</u> styling is <br> possible</p>
-      <li>could be a list</li>
-      <li>could be a list</li>
+      <li>list</li>
+      <li>list</li>
       <ul>
         <li>another set</li>
-        <li>with padings</li>
+        <li>with paddings</li>
       </ul>
-      <p><a href="#">link</a></p>
+      <p>Inline <a href="#">link</a></p>
     </article>
   </div>
-  <?php endfor;?>
+
   <div class="container cont-fl-row">
-  <button>&lt;&lt;&lt;</button>
-  <button>&lt;</button>  
-  <button>&gt;</button>
-  <button>&gt;&gt;&gt;</button>
+  <button class="disabled">&lt;&lt;&lt;</button>
+  <button class="disabled">&lt;</button>  
+  <button class="disabled">&gt;</button>
+  <button class="disabled">&gt;&gt;&gt;</button>
   </div>
 
 </div>

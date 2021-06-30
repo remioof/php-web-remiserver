@@ -6,10 +6,7 @@
 error_reporting(0);
 
 require_once('app/_config.php');
-require('app/includes/functions.php');
-
-require __DIR__ . '/app/includes/SourceQuery/bootstrap.php';
-
+require('app/includes/bootstrap-main.php');
 
 include('app/templates/default/head.php');
 include('app/templates/default/navbar.php');

@@ -60,6 +60,7 @@ p {
 }
 
 a, a:visited {color: var(--color-main-white-w);}
+a:hover, a:focus, a:active, a:visited:hover, a:visited:focus, a:visited:active {color: var(--color-text-hightlight);}
 
 li, ul, ol {
   list-style: none;

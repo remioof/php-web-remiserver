@@ -3,7 +3,6 @@
 //          ;w; configs         //
 //==============================//
 
-$title = "Remi's Server";
 $site_name = "Remi's Server";
 $site_url = "";
 $site_description = "";
@@ -33,7 +32,6 @@ $nav_href_glyph = "public/img/glyph.svg";
 
 $server_info_nametable = ['HostName','Map', 'Version', 'Players','MaxPlayers'];
 //$server_players_nametable = ['Name','Frags', 'TimeF'];
-//$server_rules_nametable = ['HostName','Map', 'Version', 'Players','MaxPlayers'];
 
 $server_rules_nametable = [
   //sven

@@ -24,6 +24,6 @@
   <link rel="stylesheet" type="text/css" href="<?php echo $site_url;?>public/css/style.css">
   <link rel="stylesheet" type="text/css" href="<?php echo $site_url;?>public/css/layout.css">
   
-  <title><?php echo $title ?></title>
+  <title><?php echo $site_name; ?></title>
 </head>
 <body class="bg-cross">

@@ -12,6 +12,7 @@ $error = "";
 $server_addr = "";
 $server_port = "";
 $server_title = "There's no server";
+$server_status = "offline";
 $server_info = [];
 $server_players = [];
 $server_rules = [];
@@ -32,14 +33,14 @@ if(isset($_GET['g'])){
       $server_players = $Query->GetPlayers();
       $server_rules = $Query->GetRules();
       
-      // nametable refer to _config.php
+      // nametable refer to _config.php, to show all items within array, comment these out
       $server_info = tuncrateList($server_info, $server_info_nametable);
       $server_rules = tuncrateList($server_rules, $server_rules_nametable);
     }
     catch( Exception $e )
     {
       $error = $e->getMessage( );
-      // echo $error;
+      echo $error;
     }
     finally
     {
@@ -48,18 +49,24 @@ if(isset($_GET['g'])){
   }
 }
 ?>
-
 <?php if($server_title): //Server Title Jumbo?>
   <div class="container cont-m-top cont-m cont-w">
-    <?php 
-      if(!empty($server_info) && $server_info["Players"] !== 0){echo "<canvas width=\"24px\" height=\"auto\" style=\"background-color: green\"></canvas>";}
-      elseif(!empty($server_info)){echo "<canvas width=\"24px\" height=\"auto\" style=\"background-color: #ebe356\"></canvas>";}
-      else {echo "<canvas width=\"24px\" height=\"auto\" style=\"background-color: red\"></canvas>";} // might need to find a better way to do this
-      ?>
     <div class="cont-p cont-w-auto bg-cont-med-alpha <?php echo "bg-game-".$g;?> cont-fl-col">
       <h2><?php echo $server_title?></h2>
-      <?php if($server_port){$server_port = ":".$server_port;}?>
-      <?php if($server_addr){echo "<h4 id=\"steam-connect\"><a class=\"nav-social\" style=\"padding: .2rem .4rem .2rem .4rem\" href=\"steam://connect/".$server_addr.$server_port."\">Connect to The Server</a></h4>";}?>
+      <?php 
+        if($server_addr)
+        { 
+          //if port value exist, to append into the href link add ":"
+          if($server_port){$server_port = ":".$server_port;}
+          //server status ifs (as in status whether its online or not) efficient grade school code right here 
+          if(!empty($server_players)){$server_status = "online";}
+          elseif($error){$server_status = "offline";}
+          else{$server_status = "idle";}
+
+          // todo: change this into <nav>, and add another element href to templates/page_commands.php, on which is triggered with jq-ajax (?). this segment shows maplist or playable chat-sound list snippet (if possible 11). might need help with database and stuff or use a cloud service to store the audio files. if not then might need ftp enabled from the server which might not be secure.
+          echo "<h4 id=\"steam-connect\" ><a class=\"nav-social\" style=\"padding: .2rem .4rem .2rem .4rem\" href=\"steam://connect/".$server_addr.$server_port."\">Connect to The Server</a><span style=\"padding: .2rem .4rem .2rem .4rem; color: black\" class=\"".$server_status."\">&nbsp".$server_status."&nbsp</span></h4>";
+        }
+      ?>
     </div>
   </div>
 <?php endif; ?>
@@ -99,13 +106,13 @@ if(isset($_GET['g'])){
   <?php if(!empty($server_players)): //if no error: Server current players?>
     <div class="container cont-w cont-fl-auto">
       <div class="container cont-m cont-p cont-fl-col bg-cont-med-alpha " style="margin-bottom: auto;">
-      <h3>Players</h3>
+      <!-- <h3>Players</h3> -->
       <table id="table-server-players" class="table">
         <thead><tr><th>Player</th><th style="width: 4em">Frags</th><th style="width: 4em">Time</th></tr></thead>
         <tbody>
         <?php foreach($server_players as $player):?>
           <tr>
-            <td><?php echo htmlspecialchars( $player[ 'Name' ] ); ?></td>
+            <td><?php echo "&nbsp".htmlspecialchars( $player[ 'Name' ] ); ?></td>
             <td><?php echo $player[ 'Frags' ]; ?></td>
             <td><?php echo $player[ 'TimeF' ]; ?></td>
           </tr>
@@ -114,9 +121,9 @@ if(isset($_GET['g'])){
       </table>
     </div>
 
-    <?php if(!empty($server_rules)): //if no error and has player: Server rules?>
+    <?php if(!empty($server_rules)): //if no error and has player: Server rules/vars/configs?>
       <div class="container cont-m cont-p cont-w cont-fl-col bg-cont-med-alpha">
-        <h3>Server Rules</h3>
+        <h3>Server Variables</h3>
         <table id="table-server-rules" class="table">      
           <tbody>
           <?php foreach($server_rules as $infokey => $infoval):?>
@@ -135,7 +142,4 @@ if(isset($_GET['g'])){
     <?php endif; ?>
   </div>
   <?php endif;?>
-
-
-
 <?php endif; ?>

@@ -13,11 +13,13 @@ require __DIR__ . '/app/includes/SourceQuery/bootstrap.php';
 
 include('app/templates/default/head.php');
 include('app/templates/default/navbar.php');
-$page = "";
-if(isset($_GET['p'])){
-  $page = $_GET['p'];
+$p = "";
 
-  switch($page){
+echo "<div class=\"cont-height-vh\">";
+if(isset($_GET['p'])){
+  $p = $_GET['p'];
+
+  switch($p){
     case 'server':
       include('app/templates/page_serverprofile.php');
       break;
@@ -27,7 +29,7 @@ if(isset($_GET['p'])){
       break;
 
     case 'news':
-      include('app/templates/page_news.html');
+      include('app/templates/page_news.php');
       break;
 
     default:
@@ -37,5 +39,6 @@ if(isset($_GET['p'])){
 } else {
   include('app/templates/page_home.php');
 }
+echo "</div>";
 include('app/templates/default/footer.php');
 ?>

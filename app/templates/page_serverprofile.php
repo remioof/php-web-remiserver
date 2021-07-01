@@ -104,6 +104,9 @@ if(isset($_GET['g'])){
 
 
   <?php if(!empty($server_players)): //if no error: Server current players?>
+    <?php 
+    array_multisort_ascendByString($server_players, 'Frags');
+    ?>
     <div class="container cont-w cont-fl-auto">
       <div class="container cont-m cont-p cont-fl-col bg-cont-med-alpha " style="margin-bottom: auto;">
       <!-- <h3>Players</h3> -->

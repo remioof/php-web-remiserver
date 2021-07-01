@@ -22,7 +22,7 @@ if(isset($_GET['p'])){
       break;
 
     case 'rules':
-      include('app/templates/page_rules.html');
+      include('app/templates/page_rules.php');
       break;
 
     case 'news':

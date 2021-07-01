@@ -13,6 +13,12 @@
     }
     return $temp;
   }
+
+  function array_multisort_ascendByString(&$array, string $string) {
+    usort($array, function($a, $b) use ($string) {
+        return $b[$string] - $a[$string];  
+    });
+  }
 // uwu
 
 

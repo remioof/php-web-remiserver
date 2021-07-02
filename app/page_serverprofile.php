@@ -65,7 +65,7 @@ if(isset($_GET['g'])){
           else{$server_status = "idle";}
 
           // todo: change this into <nav>, and add another element href to templates/page_commands.php, on which is triggered with jq-ajax (?). this segment shows maplist or playable chat-sound list snippet (if possible 11). might need help with database and stuff or use a cloud service to store the audio files. if not then might need ftp enabled from the server which might not be secure.
-          echo "<h4 id=\"steam-connect\" ><a class=\"nav-social\" style=\"padding: .2rem .4rem .2rem .4rem\" href=\"steam://connect/".$server_addr.$server_port."\">Connect to The Server</a><span style=\"padding: .2rem .4rem .2rem .4rem; color: black\" class=\"".$server_status."\">&nbsp".$server_status."&nbsp</span></h4>";
+          echo "<h4 id=\"steam-connect\" ><a class=\"nav-social border-nav\" style=\"padding: .2rem .4rem .2rem .4rem\" href=\"steam://connect/".$server_addr.$server_port."\">Connect to The Server</a><span style=\"margin-left:.8rem ;padding: .2rem .4rem .2rem .4rem; color: black\" class=\"".$server_status."\">&nbsp".$server_status."&nbsp</span></h4>";
         }
       ?>
     </div>

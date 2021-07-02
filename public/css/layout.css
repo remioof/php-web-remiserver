@@ -73,10 +73,6 @@ html * {
   margin-top: var(--height-main);
 }
 
-.cont-border {
-  border-radius: 0;
-}
-
 .cont-height-vh {
   min-height: calc(100vh - var(--height-main)*.5); 
 }
@@ -239,10 +235,6 @@ tbody{
 
   h2 {
     font-size: 36pt;
-  }
-
-  .cont-border {
-    border-radius: 8px;
   }
 
   .cont-fl-auto {

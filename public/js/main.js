@@ -8,7 +8,7 @@ navcont.children('.nav-link').hover(
     jumbo = $('#jumbotron').find('h3');
 
     navs.addClass('inactive');
-    navs.children('svg').css('padding','.3rem');
+    navs.children('svg').css('padding','.25rem');
     jumbo.text($(this).attr('title'));
     jumbo.css('display','inherit')
     jumbo.addClass('bg-h-med')
@@ -17,7 +17,7 @@ navcont.children('.nav-link').hover(
     jumbo = $('#jumbotron').find('h3');
 
     navs.removeClass('inactive');
-    navs.children('svg').css('padding','.2rem');
+    navs.children('svg').css('padding','.1rem');
     jumbo.text('');
     jumbo.removeClass('bg-h-med');
     jumbo.css('display','none')

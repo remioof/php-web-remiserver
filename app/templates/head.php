@@ -21,8 +21,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $site_url;?>public/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $site_url;?>public/img/favicon-16x16.png">
   <!-- styles  -->
-  <link rel="stylesheet" type="text/css" href="<?php echo $site_url;?>public/css/style.css">
-  <link rel="stylesheet" type="text/css" href="<?php echo $site_url;?>public/css/layout.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo $site_url;?>public/css/style-min.css">
   
   <title><?php echo $site_name; ?></title>
 </head>

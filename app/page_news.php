@@ -118,6 +118,8 @@
           <li>with paddings</li>
         </ul>
         <p>Inline <a href="#">link</a></p>
+        <p>to add padoru use div  element with padoru class, cant be inserted inline sadly</p><span class="padoru"></span>
+        <p>or use &lt;img&gt; with href:link to public/img/icon-padoru.gif</p>
       </article>
     </div>
   </div>

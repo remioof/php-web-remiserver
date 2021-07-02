@@ -40,7 +40,7 @@ if(isset($_GET['g'])){
     catch( Exception $e )
     {
       $error = $e->getMessage( );
-      echo $error;
+      // echo $error;
     }
     finally
     {
@@ -77,7 +77,7 @@ if(isset($_GET['g'])){
   <div class="container cont-m  text-color-lg cont-fl-col">  
     <h2>oops somethign goes worng ;w;</h2>
     <h4>pls reload the page, also sun voted no</h4>
-    <p><?php echo htmlspecialchars($error -> _toString())?></p>
+    <p><?php echo htmlspecialchars($error)?></p>
   </div>
 <?php else: ?>
 

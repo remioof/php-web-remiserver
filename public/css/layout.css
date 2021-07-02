@@ -264,6 +264,7 @@ footer{
 }
 /* footer ends */
 
+/* prototypes */
 .text-overflow {
   overflow-y: scroll;
   overflow-x: wrap  ;

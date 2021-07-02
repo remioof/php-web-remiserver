@@ -385,8 +385,6 @@ footer {
   background: #555; 
 }
 
-/* prototypes */
-
 .bg-game-svencoop {
   background: linear-gradient(90deg, var(--color-main-bg-bl), #00000000) ,url(../img/svencoop-banner.jpg);
   background-repeat: no-repeat, no-repeat;
@@ -433,4 +431,14 @@ h4 .offline {
   to { 
       background-position: 100% 0%
   }
+}
+
+.padoru {
+  padding: 0;
+  margin: 0;
+  content: '';
+  width: 48px;
+  height: 48px;
+  background-image: url('../img/icon-padoru.gif');
+  background-size: 48px 48px;
 }

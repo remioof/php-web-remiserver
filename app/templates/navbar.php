@@ -1,6 +1,6 @@
 <nav id="navbar" class="container hide">
   <ol id="navbar-links">
-    <a class="nav-link" href="?p=home">Home</a>
+    <a class="nav-link" href="/">Home</a>
     <a class="nav-link" href="?p=rules">Server Rules</a>
     <a class="nav-link" href="?p=news">News/Changelog</a>
     <a class="nav-link disabled" href="#MegaorDrive">Preload Files</a>
@@ -9,7 +9,9 @@
   </ol>
 
   <ol id="navbar-servers">
-    <?php
+  <button class="gone">&lt;</button>
+    <div>
+      <?php
         foreach($serverli as $navTitle=>$navProp){
           $nav_href = preg_replace('/\s*/', '', $navTitle);
           $nav_href = strtolower($nav_href);
@@ -19,6 +21,8 @@
           echo "<a href=\"?p=server&g=$nav_href\" title=\"$nav_title\" class=\"nav-link\"><svg class=\"svg-icon svg-fill\"><use xlink:href=\"$site_url$nav_href_icon#$nav_svg_tag\"></use></svg></a>\n";
         }
       ?>
+    </div>
+  <button class="gone">&gt;</button>
     </ol>
 </nav>
 

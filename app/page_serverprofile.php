@@ -49,8 +49,9 @@ if(isset($_GET['g'])){
   }
 }
 ?>
+<div class="container cont-m-top cont-w cont-fl-col">
 <?php if($server_title): //Server Title Jumbo?>
-  <div class="container cont-m-top cont-m cont-w">
+  <div class="container cont-m">
     <div class="cont-p cont-w-auto bg-cont-med-alpha <?php echo "bg-game-".$g;?> cont-fl-col">
       <h2><?php echo $server_title?></h2>
       <?php 
@@ -73,7 +74,7 @@ if(isset($_GET['g'])){
 
 
 <?php if($error): //Display if error?>
-  <div class="container cont-m-top cont-m cont-w text-color-lg cont-fl-col">  
+  <div class="container cont-m  text-color-lg cont-fl-col">  
     <h2>oops somethign goes worng ;w;</h2>
     <h4>pls reload the page, also sun voted no</h4>
     <p><?php echo htmlspecialchars($error -> _toString())?></p>
@@ -81,7 +82,7 @@ if(isset($_GET['g'])){
 <?php else: ?>
 
   <?php if(!empty($server_info)): //if no error: Server info?>
-  <div class="container cont-m cont-p cont-w cont-fl-col bg-cont-med-alpha ">
+  <div class="container cont-m cont-p  cont-fl-col bg-cont-med-alpha ">
     <h3>Server Info</h3>
     <table id="table-server-info" class="table">      
       <tbody>
@@ -107,7 +108,7 @@ if(isset($_GET['g'])){
     <?php 
     array_multisort_ascendByString($server_players, 'Frags');
     ?>
-    <div class="container cont-w cont-fl-auto">
+    <div class="container  cont-fl-auto">
       <div class="container cont-m cont-p cont-fl-col bg-cont-med-alpha " style="margin-bottom: auto;">
       <!-- <h3>Players</h3> -->
       <table id="table-server-players" class="table">
@@ -125,7 +126,7 @@ if(isset($_GET['g'])){
     </div>
 
     <?php if(!empty($server_rules)): //if no error and has player: Server rules/vars/configs?>
-      <div class="container cont-m cont-p cont-w cont-fl-col bg-cont-med-alpha">
+      <div class="container cont-m cont-p  cont-fl-col bg-cont-med-alpha">
         <h3>Server Variables</h3>
         <table id="table-server-rules" class="table">      
           <tbody>
@@ -146,3 +147,4 @@ if(isset($_GET['g'])){
   </div>
   <?php endif;?>
 <?php endif; ?>
+</div>

@@ -40,6 +40,7 @@
 
   article a, article a:visited {
     color: skyblue;
+    text-decoration: underline; 
   }
 
   button {
@@ -59,7 +60,7 @@
 <div class="container cont-m-top cont-w cont-fl-col">
   <div class="container cont-m cont-fl-col bg-cont-med-alpha">
     <h4 style="border-bottom: 2px solid #918c8b; border-top: 2px solid #918c8b">Optional Header<span style="float: right; padding-right:1rem">01/01/21</span></h4>
-    <pre style="margin-left: 1rem;"><u><a href="#">General&nbsp;</a></u>/&nbsp;<u><a href="#">Left4Dead2&nbsp;</a></u></pre>
+    <pre style="margin-left: 1rem;"><u><a href="#">General</a></u>&nbsp;/&nbsp;<u><a href="#">Left4Dead2</a></u></pre>
     <article class="container cont-p cont-fl-col">
       <h3>Heading 3</h3>
       <h4>Heading 4</h4>

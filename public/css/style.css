@@ -77,7 +77,8 @@ hr {
 }
 
 u {
-  border-bottom: 1px solid var(--color-main-bg-dk);
+  /* border-bottom: 1px solid var(--color-main-bg-dk); */
+  text-decoration: underline !important;
 }
 
 img {
@@ -252,10 +253,13 @@ nav .inactive {
 }
 
 .hide {
-  /* display: none !important; */
   transform: translateY(-100%);
   transition: 200ms;
   opacity: 0%;
+}
+
+.gone {
+  display: none !important;
 }
 
 button {

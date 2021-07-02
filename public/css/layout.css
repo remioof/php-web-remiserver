@@ -3,7 +3,7 @@
 :root {
   --height-main : 6.4rem;
   --width-main : 8rem;
-  --transition: 200ms;
+  --transition: 100ms;
 }
 
 /* init html */
@@ -98,6 +98,10 @@ nav > * > * {
   display: flex;
   width: auto ;
   padding: .4rem;
+}
+
+nav > * > * > a {
+  padding: .2rem;
 }
 
 /* navbar */

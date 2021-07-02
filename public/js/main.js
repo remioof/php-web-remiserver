@@ -1,14 +1,23 @@
-$( '#navbar-servers > .nav-link' ).hover(
-  
+
+// navbar jq dom events onHover
+navcont = $('#navbar-servers > div');
+
+navcont.children('.nav-link').hover(
   function() {
-    $(this).siblings('a').not(this).addClass('inactive');
+    navs = $(this).siblings('a').not(this);
     jumbo = $('#jumbotron').find('h3');
+
+    navs.addClass('inactive');
+    navs.children('svg').css('padding','.3rem');
     jumbo.text($(this).attr('title'));
     jumbo.css('display','inherit')
     jumbo.addClass('bg-h-med')
   }, function() {
-    $(this).siblings('a').not(this).removeClass('inactive');
+    navs = $(this).siblings('a').not(this);
     jumbo = $('#jumbotron').find('h3');
+
+    navs.removeClass('inactive');
+    navs.children('svg').css('padding','.2rem');
     jumbo.text('');
     jumbo.removeClass('bg-h-med');
     jumbo.css('display','none')
@@ -16,26 +25,18 @@ $( '#navbar-servers > .nav-link' ).hover(
   }
 );
 
+//todo: if more than 4 servers, the navbar should adapt 
+//navbar jq if parent elem has more than 4 child then hide the children.
+$(function () {
+  navcont.each(function (index, el) {  
+    $(this).children(":gt(3)").css('display','none  ');
+  });
+});
+
+// navbar burger
 $('#burger').click(
   function(){
     $('#navbar').toggleClass('hide');
     $('#burger').html($('#burger').html() == '☰' ? 'X' : '☰');
   }
 );
-
-// $('#navbar-links > .nav-link').hover(
-//   function() {
-//     if($(this).children('span').length > 0){
-//       console.log($(this).children('span').css('opacity', '100%'));
-//     }
-//   },
-  
-//   function() {
-//     if($(this).children('span').length > 0){
-//       console.log($(this).children('span').css('opacity', '0%'));
-//     }
-//   }
-
-// )
-
-// $(selector).css(propertyName, value);

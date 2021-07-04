@@ -116,7 +116,7 @@ if(isset($_GET['g'])){
           <tr>
             <td><?php echo "&nbsp".htmlspecialchars( $player[ 'Name' ] ); ?></td>
             <td><?php echo $player[ 'Frags' ]; ?></td>
-            <td><?php echo $player[ 'TimeF' ]; ?></td>
+            <td class="time"><?php echo $player[ 'Time' ]; ?></td>
           </tr>
         <?php endforeach;?>
         </tbody>
@@ -146,3 +146,21 @@ if(isset($_GET['g'])){
   <?php endif;?>
 <?php endif; ?>
 </div>
+
+    <script defer><?php ob_start();?>
+      timeEl = Array.from(document.getElementsByClassName('time'));
+      temp = []; //recursion with memo
+      timeEl.forEach(el => {temp.push(parseInt(el.innerHTML))});
+      function iter() {
+        timeEl.forEach((el, n) => {
+          temp[n]++;
+          el.innerHTML = (Math.floor(temp[n]/3600) ? Math.floor(temp[n]/3600) + ":" : "") + Math.floor(temp[n]/60) + ":" + (temp[n]%60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false}); //AAAHHAHAHAHAHAAAAHAHAHHAHAH WHAT. THE. FUCK. 
+        });
+        setTimeout(iter, 1000)
+      }
+      iter();
+      
+      <?php 
+        $javascript = ob_get_clean();
+        echo funct\minify_js($javascript);
+      ?></script>

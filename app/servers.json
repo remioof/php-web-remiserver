@@ -3,7 +3,7 @@
     "title": "Sven Co-op",
     "gq_conf_address": "remiserver.asuscomm.com",
     "gq_conf_port": 27015,
-    "gq_conf_sourceQuery": 1,
+    "gq_conf_sourceQuery": 27015,
     "gq_conf_type": "",
     "site_svgTag": "hl"
   },
@@ -12,7 +12,7 @@
     "title": "Left4Dead 2",  
     "gq_conf_address": "remiserver.asuscomm.com",
     "gq_conf_port": 27099,
-    "gq_conf_sourceQuery": 1,
+    "gq_conf_sourceQuery": 27099,
     "gq_conf_type": "",
     "site_svgTag": "l4d"
   },
@@ -20,8 +20,8 @@
   "unturned" :  {
     "title": "Unturned",
     "gq_conf_address": "remiserver.asuscomm.com",
-    "gq_conf_port":0,
-    "gq_conf_sourceQuery": 0,
+    "gq_conf_port":27021,
+    "gq_conf_sourceQuery": 27022,
     "gq_conf_type": "",
     "site_svgTag": "unturned"
   },

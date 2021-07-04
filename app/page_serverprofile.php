@@ -20,10 +20,11 @@ if(isset($_GET['g'])){
     
     $server_addr = $serverli[$g]['gq_conf_address'];
     $server_port = $serverli[$g]['gq_conf_port'];
+    $server_query = $serverli[$g]['gq_conf_sourceQuery'];
     $server_title = $serverli[$g]['title'];
     try
     {
-      $Query->Connect( ''.$server_addr.'', $server_port, SQ_TIMEOUT, SQ_ENGINE );
+      $Query->Connect( ''.$server_addr.'', $server_query, SQ_TIMEOUT, SQ_ENGINE );
       
       $server_info = $Query->GetInfo();
       $server_players = $Query->GetPlayers();
@@ -62,8 +63,7 @@ if(isset($_GET['g'])){
           elseif($error){$server_status = "offline";}
           else{$server_status = "idle";}
 
-          // todo: change this into <nav>, and add another element href to templates/page_commands.php, on which is triggered with jq-ajax (?). this segment shows maplist or playable chat-sound list snippet (if possible 11). might need help with database and stuff or use a cloud service to store the audio files. if not then might need ftp enabled from the server which might not be secure.
-          echo "<h4 id=\"steam-connect\" ><a class=\"nav-social border-nav\" style=\"padding: .2rem .4rem .2rem .4rem\" href=\"steam://connect/".$server_addr.$server_port."\">Connect to The Server</a><span style=\"margin-left:.8rem ;padding: .2rem .4rem .2rem .4rem; color: black\" class=\"".$server_status."\">&nbsp".$server_status."&nbsp</span></h4>";
+          echo "<h4 id=\"steam-connect\" ><a class=\"nav-social border-nav\" style=\"padding: .2rem .4rem .2rem .4rem\" href=\"steam://connect/".$server_addr.$server_port."\">Connect to The Server</a><span style=\"margin-left:.8rem ;padding: .2rem .4rem .2rem .4rem; color: black\" class=\"".$server_status."\">&nbsp".$server_status."&nbsp</span><a class=\"nav-social border-nav\" style=\"padding: .2rem\" href=\"\" onclick=\"location.reload()\">&#128472;</a></h4>";
         }
       ?>
     </div>

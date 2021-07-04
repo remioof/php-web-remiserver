@@ -38,10 +38,12 @@
   ul{
     margin-block-start: .2em;
     margin-block-end: 1em;
+    list-style-position: inside;
   }
 
   li {
     list-style: circle;
+    list-style-position: inside;
   }
 
   ul>li {
@@ -121,7 +123,7 @@
         </ul>
         <p>Inline <a href="#">link</a></p>
         <p>to add padoru use div  element with padoru class, cant be inserted inline sadly</p><span class="padoru"></span>
-        <p>or use &lt;img&gt; with href:link to public/img/icon-padoru.gif</p>
+        <p>or use <code>&lt;img&gt;</code> with <code>href:link="public/img/icon-padoru.gif"</code></p>
       </article>
     </div>
   </div>

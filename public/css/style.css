@@ -87,6 +87,14 @@ img {
   max-width: var(--height-main);
 }
 
+code {
+  background-color: var(--color-text-bg-grey);
+  color: var(--color-main-white-w);
+  padding: .2rem;
+  margin: 0;
+  border-radius: 5px;
+}
+
 /* nav styles */
 .nav-social {
   background-color: var(--color-text-bg);
@@ -110,10 +118,10 @@ img {
 
 nav .svg-icon {
   background-color: var(--color-text-bg);
-  border-top: 1.2px solid var(--color-border-h);
-  border-left: 1.2px solid var(--color-border-h);
-  border-right: 1.2px solid var(--color-border-s);
-  border-bottom: 1.2px solid var(--color-border-s);
+  border-top: 1px solid var(--color-border-h);
+  border-left: 1px solid var(--color-border-h);
+  border-right: 1px solid var(--color-border-s);
+  border-bottom: 1px solid var(--color-border-s);
   transition: calc(var(--transition)*.5) ease;
   height: 3.6rem;
   width: 3.6rem;
@@ -172,30 +180,21 @@ nav .nav-link:hover span {
 
 #navbar-servers div {
   cursor: pointer;
-  background-position-y: 55%;
+  background-position-y: 50%;
   transition: calc(var(--transition));
+  box-shadow: none;
 }
 
 #navbar-servers div:hover, #navbar-servers div:active  {
   transform: translateY(-.3rem);
-  background-position-y: 50%;
+  background-position-y: 40%;
   transition: calc(var(--transition));
   animation-name: bg-flash;
   animation-duration: calc(var(--transition)*2);
   animation-timing-function: ease-out;
+  box-shadow: 0 .3rem .6rem var(--color-text-bg-grey);
 }
 
-@keyframes bg-flash {
-  0% {
-    filter: brightness(100%);
-  }
-  5% { 
-    filter: brightness(175%);
-  }
-  100% { 
-    filter: brightness(100%);
-  }
-}
 #burger {
   /* or trigram of heaven, borg */
   position: absolute;
@@ -251,32 +250,32 @@ nav .nav-link:hover span {
 .text-color-lg * {color: var(--color-main-white-w);}
 
 .border-cont {
-  border-top: 1.2px solid var(--color-main-bg-gr);
-  border-left: 1.2px solid var(--color-main-bg-gr);
-  border-right: 1.2px solid var(--color-main-bg-bl);
-  border-bottom: 1.2px solid var(--color-main-bg-bl);
+  border-top: 1px solid var(--color-main-bg-gr);
+  border-left: 1px solid var(--color-main-bg-gr);
+  border-right: 1px solid var(--color-main-bg-bl);
+  border-bottom: 1px solid var(--color-main-bg-bl);
 }
 
 .border-cont-h {
-  border-top: 1.2px solid var(--color-border-h);
-  border-left: 1.2px solid var(--color-border-h);
-  border-right: 1.2px solid var(--color-border-s);
-  border-bottom: 1.2px solid var(--color-border-s);
+  border-top: 1px solid var(--color-border-h);
+  border-left: 1px solid var(--color-border-h);
+  border-right: 1px solid var(--color-border-s);
+  border-bottom: 1px solid var(--color-border-s);
 }
 
 .border-nav {
-  border-top: 1.2px solid var(--color-border-h);
-  border-left: 1.2px solid var(--color-border-h);
-  border-right: 1.2px solid var(--color-border-s);
-  border-bottom: 1.2px solid var(--color-border-s);
+  border-top: 1px solid var(--color-border-h);
+  border-left: 1px solid var(--color-border-h);
+  border-right: 1px solid var(--color-border-s);
+  border-bottom: 1px solid var(--color-border-s);
   transition: calc(var(--transition)*.5) ease;
 }
 
 .border-nav:hover, .border-nav:active {
-  border-top: 1.2px solid var(--color-main-bg-gr);
-  border-left: 1.2px solid var(--color-main-bg-gr);
-  border-right: 1.2px solid var(--color-main-white-w);
-  border-bottom: 1.2px solid var(--color-main-white-w);
+  border-top: 1px solid var(--color-main-bg-gr);
+  border-left: 1px solid var(--color-main-bg-gr);
+  border-right: 1px solid var(--color-main-white-w);
+  border-bottom: 1px solid var(--color-main-white-w);
   transition: calc(var(--transition)*.5) ease;
 }
 
@@ -293,10 +292,10 @@ nav a:hover .svg-icon, nav a:active .svg-icon
 {
   fill: var(--color-text-hightlight);
   background-color: var(--color-text-bg-grey);
-  border-top: 1.2px solid var(--color-main-bg-gr);
-  border-left: 1.2px solid var(--color-main-bg-gr);
-  border-right: 1.2px solid var(--color-main-white-w);
-  border-bottom: 1.2px solid var(--color-main-white-w);
+  border-top: 1px solid var(--color-main-bg-gr);
+  border-left: 1px solid var(--color-main-bg-gr);
+  border-right: 1px solid var(--color-main-white-w);
+  border-bottom: 1px solid var(--color-main-white-w);
   transition: calc(var(--transition)*1);
 }
 
@@ -343,6 +342,7 @@ button {
   color: var(--color-text-bl);
   background-color: var(--color-text-bg);
   transition: calc(var(--transition)*.5);
+  cursor: pointer;
 }
 
 button * {
@@ -421,7 +421,7 @@ footer {
 
 /* Game Banner  */
 .bg-game-svencoop {
-  background: linear-gradient(90deg, var(--color-text-bg), #00000000) ,url(../img/svencoop-banner.jpg);
+  background: linear-gradient(90deg, var(--color-text-bg), #00000000) ,url(../img/banner-svencoop_2.jpg);
   background-repeat: no-repeat, no-repeat;
   background-position: center center, center right;
   background-attachment: cover, fixed;
@@ -429,7 +429,25 @@ footer {
   -webkit-background-size: cover, cover;
 }
 .bg-game-l4d2 {
-  background: linear-gradient(90deg, var(--color-text-bg), #00000000) ,url(../img/l4d2-banner.jpg);
+  background: linear-gradient(90deg, var(--color-text-bg), #00000000) ,url(../img/banner-l4d2.jpg);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center center, center right;
+  background-attachment: cover, fixed;
+  background-size: cover, cover;
+  -webkit-background-size: cover, cover;
+}
+
+.bg-game-unturned {
+  background: linear-gradient(90deg, var(--color-text-bg), #00000000) ,url(../img/banner-unturned.jpg);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center center, center right;
+  background-attachment: cover, fixed;
+  background-size: cover, cover;
+  -webkit-background-size: cover, cover;
+}
+
+.bg-game-minecraft {
+  background: linear-gradient(90deg, var(--color-text-bg), #00000000) ,url(../img/banner-minecraft.jpg);
   background-repeat: no-repeat, no-repeat;
   background-position: center center, center right;
   background-attachment: cover, fixed;
@@ -465,6 +483,18 @@ h4 .offline {
   }
   to { 
       background-position: 100% 0%
+  }
+}
+
+@keyframes bg-flash {
+  0% {
+    filter: brightness(100%);
+  }
+  5% { 
+    filter: brightness(175%);
+  }
+  100% { 
+    filter: brightness(100%);
   }
 }
 

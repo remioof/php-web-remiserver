@@ -1,11 +1,7 @@
 <?php
 // Source_Query_by: xPaw; git: https://github.com/xPaw/PHP-Source-Query;
-use xPaw\SourceQuery\SourceQuery;
-
-define( 'SQ_TIMEOUT',     1 );
-define( 'SQ_ENGINE',      SourceQuery::SOURCE );
-
-$Query = new SourceQuery( );
+// I cant wrap my head in OOP, here lies my fap (Functional Programming) twchnique 
+use site\baseFunctions as funct;
 
 $g = "";
 $error = "";
@@ -34,8 +30,8 @@ if(isset($_GET['g'])){
       $server_rules = $Query->GetRules();
       
       // nametable refer to _config.php, to show all items within array, comment these out
-      $server_info = tuncrateList($server_info, $server_info_nametable);
-      $server_rules = tuncrateList($server_rules, $server_rules_nametable);
+      $server_info = funct\tuncrateList($server_info, $server_info_nametable);
+      $server_rules = funct\tuncrateList($server_rules, $server_rules_nametable);
     }
     catch( Exception $e )
     {
@@ -49,6 +45,8 @@ if(isset($_GET['g'])){
   }
 }
 ?>
+
+
 <div class="container cont-m-top cont-w cont-fl-col">
 <?php if($server_title): //Server Title Jumbo?>
   <div class="container cont-m">
@@ -106,7 +104,7 @@ if(isset($_GET['g'])){
 
   <?php if(!empty($server_players)): //if no error: Server current players?>
     <?php 
-    array_multisort_ascendByString($server_players, 'Frags');
+    funct\array_multisort_ascendByString($server_players, 'Frags');
     ?>
     <div class="container  cont-fl-auto">
       <div class="container cont-m cont-p cont-fl-col bg-cont-med-alpha " style="margin-bottom: auto;">

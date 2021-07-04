@@ -38,8 +38,8 @@ html , html body{
 
 h1, h2, h3, h4 {
   font-family: Unispace, Helvetica, Arial, sans-serif;
-  margin-block-start: .4em;
-  margin-block-end: .4em;
+  margin-block-start: .2em;
+  margin-block-end: .2em;
 }
 
 h1 {
@@ -126,6 +126,12 @@ nav .nav-link {
   justify-content: center;
 }
 
+
+.svg-nav {
+  height: var(--height-main);
+  width: var(--height-main);
+}
+
 nav .svg-nav {
   height: 1.8rem;
   width: 1.8rem;
@@ -137,6 +143,7 @@ nav .nav-link span {
   transform: translateX(0) translateY(100%);
   opacity: 0;
   transition: calc(var(--transition)*3);
+  transition-timing-function: cubic-bezier(0.000, 0.760, 0.580, 1.000);
   padding: 0 .2rem 0 .2rem;
   pointer-events: none;
   overflow: hidden;
@@ -153,6 +160,7 @@ nav .nav-link:hover span {
   transform: translateX(0) translateY(150%);
   opacity: 100%;
   transition: calc(var(--transition)*3);
+  transition-timing-function: cubic-bezier(0.000, 0.760, 0.580, 1.000);
 }
 
 
@@ -162,6 +170,32 @@ nav .nav-link:hover span {
   transition: 200ms;
 }
 
+#navbar-servers div {
+  cursor: pointer;
+  background-position-y: 55%;
+  transition: calc(var(--transition));
+}
+
+#navbar-servers div:hover, #navbar-servers div:active  {
+  transform: translateY(-.3rem);
+  background-position-y: 50%;
+  transition: calc(var(--transition));
+  animation-name: bg-flash;
+  animation-duration: calc(var(--transition)*2);
+  animation-timing-function: ease-out;
+}
+
+@keyframes bg-flash {
+  0% {
+    filter: brightness(100%);
+  }
+  5% { 
+    filter: brightness(175%);
+  }
+  100% { 
+    filter: brightness(100%);
+  }
+}
 #burger {
   /* or trigram of heaven, borg */
   position: absolute;
@@ -277,7 +311,7 @@ a:hover, a:active {
   transition: calc(var(--transition)*1);
 }
 
-nav .inactive {
+.inactive {
   opacity: 60%;
   transition: calc(var(--transition)*.5);
 }
@@ -372,21 +406,22 @@ footer {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f17b; 
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #00000088; 
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #000000a0; 
 }
 
+/* Game Banner  */
 .bg-game-svencoop {
-  background: linear-gradient(90deg, var(--color-main-bg-bl), #00000000) ,url(../img/svencoop-banner.jpg);
+  background: linear-gradient(90deg, var(--color-text-bg), #00000000) ,url(../img/svencoop-banner.jpg);
   background-repeat: no-repeat, no-repeat;
   background-position: center center, center right;
   background-attachment: cover, fixed;
@@ -394,7 +429,7 @@ footer {
   -webkit-background-size: cover, cover;
 }
 .bg-game-l4d2 {
-  background: linear-gradient(90deg, var(--color-main-bg-bl), #00000000) ,url(../img/l4d2-banner.jpg);
+  background: linear-gradient(90deg, var(--color-text-bg), #00000000) ,url(../img/l4d2-banner.jpg);
   background-repeat: no-repeat, no-repeat;
   background-position: center center, center right;
   background-attachment: cover, fixed;

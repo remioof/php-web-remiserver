@@ -94,6 +94,7 @@ nav > * > * {
   display: flex;
   width: auto ;
   padding: .4rem;
+  margin: .2rem;
 }
 
 nav > * > * > a {

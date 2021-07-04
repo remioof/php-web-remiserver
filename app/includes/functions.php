@@ -1,4 +1,5 @@
 <?php
+namespace site\baseFunctions;
 
   function formatTime($time){
     return number_format(($time/60), 2, '.', '');
@@ -19,9 +20,26 @@
         return $b[$string] - $a[$string];  
     });
   }
+
+  // Function to check response time https://stackoverflow.com/a/9843251
+  function pingDomain($domain, $port){
+    $starttime = microtime(true);
+    $file      = fsockopen ('udp://' . $domain, $port, $errno, $errstr, 10);
+    $stoptime  = microtime(true);
+    $status    = 0;
+
+    if (!$file) $status = -1;  // Site is down
+    else {
+        fclose($file);
+        $status = ($stoptime - $starttime) * 1000;
+        $status = floor($status);
+    }
+  return $status;
+}
 // uwu
+?>
 
-
+<?php
 /**
  * -----------------------------------------------------------------------------------------
  * Based on `https://github.com/mecha-cms/mecha-cms/blob/master/system/kernel/converter.php`

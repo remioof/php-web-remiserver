@@ -1,8 +1,14 @@
 <?php
-require __DIR__ . '/functions.php';
-require __DIR__ . '/SourceQuery/bootstrap.php';
-require __DIR__ . '/Parsedown.php';
+//functs
+require_once __DIR__ . '/functions.php';
 
+//SourceQuery
+require_once __DIR__ . '/SourceQuery/bootstrap.php';
+
+//Parsedown
+//require_once __DIR__ . '/Parsedown.php';
+
+//Minify
 require_once __DIR__ . '/minify-1.3.63/Minify.php';
 require_once __DIR__ . '/minify-1.3.63/CSS.php';
 require_once __DIR__ . '/minify-1.3.63/JS.php';

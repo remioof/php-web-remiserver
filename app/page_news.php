@@ -64,7 +64,9 @@
 
   <?php 
   $styles = ob_get_clean();
-  echo minify_css($styles);
+  use site\baseFunctions as funct;
+  echo funct\minify_css($styles);
+
   ?></style>
 
 <div class="container cont-m-top cont-w cont-fl-col">

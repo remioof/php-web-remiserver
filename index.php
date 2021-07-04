@@ -20,15 +20,13 @@ include('app/templates/head.php');
 include('app/templates/navbar.php');
 $p = "";
 
+
+
 echo "<div class=\"cont-height-vh\">";
 if(isset($_GET['p'])){
   $p = $_GET['p'];
 
   switch($p){
-    case 'server':
-      include('app/page_serverprofile.php');
-      break;
-
     case 'rules':
       include('app/page_rules.php');
       break;

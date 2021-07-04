@@ -1,37 +1,24 @@
-
 // navbar jq dom events onHover
-navcont = $('#navbar-servers > div');
+// $('#navbar-servers').find('div').hover(
+//   function() {
+//     console.log('asdawd');
+//     $(this).siblings('div').not(this).addClass('inactive');
+//   }, function() {
+//     $(this).siblings('div').not(this).removeClass('inactive');
+//   }
+// );
 
-navcont.children('.nav-link').hover(
-  function() {
-    navs = $(this).siblings('a').not(this);
-    jumbo = $('#jumbotron').find('h3');
 
-    navs.addClass('inactive');
-    navs.children('svg').css('padding','.25rem');
-    jumbo.text($(this).attr('title'));
-    jumbo.css('display','inherit')
-    jumbo.addClass('bg-h-med')
-  }, function() {
-    navs = $(this).siblings('a').not(this);
-    jumbo = $('#jumbotron').find('h3');
-
-    navs.removeClass('inactive');
-    navs.children('svg').css('padding','.1rem');
-    jumbo.text('');
-    jumbo.removeClass('bg-h-med');
-    jumbo.css('display','none')
-
-  }
-);
-
-//todo: if more than 4 servers, the navbar should adapt 
-//navbar jq if parent elem has more than 4 child then hide the children.
 $(function () {
-  navcont.each(function (index, el) {  
-    $(this).children(":gt(3)").css('display','none  ');
+  el = $('#navbar-servers').find('div')
+  el.each(function (index) {
+      var self = this;
+      setTimeout(function () {
+        $(self).removeClass('gone');
+      }, index*200);
+      
+    });
   });
-});
 
 // navbar burger
 $('#burger').click(

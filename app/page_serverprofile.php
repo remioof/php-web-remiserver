@@ -151,20 +151,24 @@ if(isset($_GET['g'])){
 <?php endif; ?>
 </div>
 
-    <script defer><?php ob_start();?>
-      timeEl = Array.from(document.getElementsByClassName('time'));
-      temp = []; //recursion with memo
-      timeEl.forEach(el => {temp.push(parseInt(el.innerHTML))});
+    <script defer><?php ob_start();?>      
+      Number.prototype.twoDigit = function() {return this>9 ? this.toString() : "0" + this.toString() };
+      const timeEl = Array.from(document.getElementsByClassName('time'));
+      var temp = timeEl.map(a => a.innerHTML);
+      
+
       function iter() {
         timeEl.forEach((el, n) => {
           temp[n]++;
+          if (temp[n] > (86400 - 1)){temp[n] = 0}
           let hour = Math.floor(temp[n]/3600);
-          let minute = Math.floor(temp[n]/60);
+          let minute = (Math.floor(temp[n]/60)%60);
           let sec = temp[n]%60;
-          el.innerHTML = (hour ? hour + ":" : "") + minute.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false}) + ":" + sec.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+          el.innerHTML = (hour ? hour + ":" : "") + (minute).twoDigit() + ":" + sec.twoDigit();
         });
         setTimeout(iter, 1000)
       }
+      
       iter();
       
       <?php 

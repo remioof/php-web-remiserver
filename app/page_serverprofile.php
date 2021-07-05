@@ -48,7 +48,11 @@ if(isset($_GET['g'])){
 ?>
 
 
+
 <div class="container cont-m-top cont-w cont-fl-col">
+<div class="container cont-fl-row">
+  <h4><a class="nav-social border-nav unhide" style="padding: .2rem .4rem .2rem .4rem" title="To Server List" href="/servers.php">&lt;&lt;&lt;</a></h4>
+</div>
 <?php if($server_title): //Server Title Jumbo?>
   <div class="container cont-m">
     <div class="cont-p cont-w-auto bg-cont-med-alpha <?php echo "bg-game-".$g;?> cont-fl-col">
@@ -63,7 +67,7 @@ if(isset($_GET['g'])){
           elseif($error){$server_status = "offline";}
           else{$server_status = "idle";}
 
-          echo "<h4 id=\"steam-connect\" ><a class=\"nav-social border-nav\" style=\"padding: .2rem .4rem .2rem .4rem\" href=\"steam://connect/".$server_addr.$server_port."\">Connect to The Server</a><span style=\"margin-left:.8rem ;padding: .2rem .4rem .2rem .4rem; color: black\" class=\"".$server_status."\">&nbsp".$server_status."&nbsp</span><a class=\"nav-social border-nav\" style=\"padding: .2rem\" href=\"\" onclick=\"location.reload()\">&#128472;</a></h4>";
+          echo "<h4 id=\"steam-connect\" ><a class=\"nav-social border-nav\" style=\"padding: .2rem .4rem .2rem .4rem\" href=\"steam://connect/".$server_addr.$server_port."\">Connect to The Server</a><span style=\"margin-left:.8rem ;padding: .2rem .4rem .2rem .4rem; color: black\" class=\"".$server_status."\">&nbsp".$server_status."&nbsp</span><a class=\"nav-social border-nav\" style=\"padding: .2rem\" href=\"\" title=\"Refresh\" onclick=\"location.reload()\">&#128472;</a></h4>";
         }
       ?>
     </div>
@@ -154,7 +158,10 @@ if(isset($_GET['g'])){
       function iter() {
         timeEl.forEach((el, n) => {
           temp[n]++;
-          el.innerHTML = (Math.floor(temp[n]/3600) ? Math.floor(temp[n]/3600) + ":" : "") + Math.floor(temp[n]/60) + ":" + (temp[n]%60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false}); //AAAHHAHAHAHAHAAAAHAHAHHAHAH WHAT. THE. FUCK. 
+          let hour = Math.floor(temp[n]/3600);
+          let minute = Math.floor(temp[n]/60);
+          let sec = temp[n]%60;
+          el.innerHTML = (hour ? hour + ":" : "") + minute.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false}) + ":" + sec.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
         });
         setTimeout(iter, 1000)
       }

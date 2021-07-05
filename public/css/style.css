@@ -326,6 +326,12 @@ a:hover, a:active {
   opacity: 0%;
 }
 
+.unhide {
+  transform: translateY(0);
+  transition: 200ms;
+  opacity: 100%;
+}
+
 .gone {
   display: none !important;
 }
@@ -376,6 +382,12 @@ footer {
     transform: translateY(0);
     transition: 200ms;
     opacity: 100%;
+  }
+
+  .unhide{
+    transform: translateY(-100%);
+    transition: 200ms;
+    opacity: 0%;
   }
 
   h1 {

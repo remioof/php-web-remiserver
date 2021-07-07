@@ -1,38 +1,54 @@
 {
   "svencoop" :{
-    "title": "Sven Co-op",
-    "gq_conf_address": "remiserver.asuscomm.com",
-    "gq_conf_port": 27015,
-    "gq_conf_sourceQuery": 27015,
-    "gq_conf_type": "",
-    "site_svgTag": "hl"
+      "title": "Sven Co-op",
+      "gq_config":{
+        "addr": "remiserver.asuscomm.com",
+        "port": 27015,
+        "portQuery": 27015,
+        "isSteam": "steam"
+      },
+      "meta":{
+        "svgTag": "hl"
+      }
   },
 
   "l4d2" : {
-    "title": "Left4Dead 2",  
-    "gq_conf_address": "remiserver.asuscomm.com",
-    "gq_conf_port": 27099,
-    "gq_conf_sourceQuery": 27099,
-    "gq_conf_type": "",
-    "site_svgTag": "l4d"
+      "title": "Left4Dead 2",  
+      "gq_config": {
+        "addr": "remiserver.asuscomm.com",
+        "port": 27099,
+        "portQuery": 27099,
+        "isSteam": "steam"
+      },
+      "meta":{
+        "svgTag": "l4d"
+      }
   },
 
   "unturned" :  {
-    "title": "Unturned",
-    "gq_conf_address": "remiserver.asuscomm.com",
-    "gq_conf_port":27021,
-    "gq_conf_sourceQuery": 27022,
-    "gq_conf_type": "",
-    "site_svgTag": "unturned"
+      "title": "Unturned",
+      "gq_config":{
+        "addr":"remiserver.asuscomm.com",
+        "port": 27021,
+        "portQuery": 27022,
+        "isSteam": "steam"
+      },
+      "meta":{
+        "svgTag": "unturned"
+      }
   },
   
   "minecraft" :  {
-    "title": "Minecraft",
-    "gq_conf_address": "",
-    "gq_conf_port":0,
-    "gq_conf_sourceQuery": 0,
-    "gq_conf_type": "",
-    "site_svgTag": "minecraft"
+      "title": "Minecraft",
+      "gq_config":{
+        "addr": "remiserver.asuscomm.com",
+        "port": 25565,
+        "portQuery": 25565,
+        "isSteam": "nosteam"
+      },
+      "meta":{
+        "svgTag": "minecraft"
+      }
   }
   
 }

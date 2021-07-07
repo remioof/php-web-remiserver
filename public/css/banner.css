@@ -1,0 +1,25 @@
+/* Game Banners */
+.bg-game-svencoop {
+  background: linear-gradient(90deg, var(--color-text-bg), #00000000), url(../img/banner-svencoop_2.jpg);
+}
+
+.bg-game-l4d2 {
+  background: linear-gradient(90deg, var(--color-text-bg), #00000000), url(../img/banner-l4d2.jpg);
+}
+
+.bg-game-unturned {
+  background: linear-gradient(90deg, var(--color-text-bg), #00000000), url(../img/banner-unturned.jpg);
+}
+
+.bg-game-minecraft {
+  background: linear-gradient(90deg, var(--color-text-bg), #00000000), url(../img/banner-minecraft.jpg);
+}
+
+/* !!! no touchie */
+[class*="bg-game-"]{
+  background-repeat: no-repeat, no-repeat;
+  background-position: center center, center right;
+  background-attachment: cover, fixed;
+  background-size: cover, cover;
+  -webkit-background-size: cover, cover;
+}

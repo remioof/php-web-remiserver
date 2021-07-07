@@ -13,8 +13,8 @@ use MatthiasMullie\Minify;
 $cssPath = 'public/css';
 $cssmin = new Minify\CSS($cssPath . '/layout.css');
 $cssmin->add($cssPath . '/style.css');
+$cssmin->add($cssPath . '/banner.css');
 $cssmin->minify($cssPath . '/style-min.css');
-// css from 16kb down to 12kb
 
 include('app/templates/head.php');
 include('app/templates/navbar.php');

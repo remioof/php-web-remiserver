@@ -5,6 +5,7 @@ use site\baseFunctions as funct;
 
 $g = "";
 $error = "";
+$server_conf = [];
 $server_addr = "";
 $server_port = "";
 $server_title = "There's no server";
@@ -15,33 +16,58 @@ $server_rules = [];
 
 if(isset($_GET['g'])){
   $g = $_GET['g'];
-  // get url param, if not set further request is skipped
-  if($serverli[$g]['gq_conf_address']){
-    
-    $server_addr = $serverli[$g]['gq_conf_address'];
-    $server_port = $serverli[$g]['gq_conf_port'];
-    $server_query = $serverli[$g]['gq_conf_sourceQuery'];
+  // get url param, if not then yeet
+  if($serverli[$g]){
     $server_title = $serverli[$g]['title'];
-    try
+    $server_conf = $serverli[$g]["gq_config"];
+    $server_addr = $server_conf['addr'];
+    $server_port = $server_conf['port'];
+    $server_query = $server_conf['portQuery'];
+    $server_type = $server_conf['isSteam'];
+    if($server_type || $server_type == !null || $server_type= "steam")
     {
-      $Query->Connect( ''.$server_addr.'', $server_query, SQ_TIMEOUT, SQ_ENGINE );
-      
-      $server_info = $Query->GetInfo();
-      $server_players = $Query->GetPlayers();
-      $server_rules = $Query->GetRules();
-      
-      // nametable refer to _config.php, to show all items within array, comment these out
-      $server_info = funct\tuncrateList($server_info, $server_info_nametable);
-      $server_rules = funct\tuncrateList($server_rules, $server_rules_nametable);
+      //SourceQuery method
+      try
+      {
+        $Query->Connect( ''.$server_addr.'', $server_query, SQ_TIMEOUT, SQ_ENGINE );
+        
+        $server_info = $Query->GetInfo();
+        $server_players = $Query->GetPlayers();
+        $server_rules = $Query->GetRules();
+        
+        // nametable refer to _config.php, to show all items within array, comment these out
+        $server_info = funct\tuncrateList($server_info, $server_info_nametable);
+        $server_rules = funct\tuncrateList($server_rules, $server_rules_nametable);
+      }
+      catch( Exception $e )
+      {
+        $error = $e->getMessage( );
+        // echo $error;
+      }
+      finally
+      {
+        $Query->Disconnect( );
+      }
     }
-    catch( Exception $e )
+    else 
     {
-      $error = $e->getMessage( );
-      // echo $error;
-    }
-    finally
-    {
-      $Query->Disconnect( );
+      //Other method; minecraft test
+      try
+      {
+        $MineQuery->Connect( 'remiserver.asuscomm.com', 25565, SQ_TIMEOUT );
+        
+        print_r( $MineQuery->Query( ) );
+        // print_r( $MineQuery->GetPlayers( ) );
+
+        // $server_info = $MineQuery->GetInfo();
+        // $server_players = $MineQuery->GetPlayers();
+      }
+      catch( MinecraftQueryException $e )
+      {
+        $error = $e->getMessage( );
+        echo $error;
+      }
+
     }
   }
 }
@@ -67,9 +93,32 @@ if(isset($_GET['g'])){
           elseif($error){$server_status = "offline";}
           else{$server_status = "idle";}
 
-          echo "<h4 id=\"steam-connect\" ><a class=\"nav-social border-nav\" style=\"padding: .2rem .4rem .2rem .4rem\" href=\"steam://connect/".$server_addr.$server_port."\">Connect to The Server</a><span style=\"margin-left:.8rem ;padding: .2rem .4rem .2rem .4rem; color: black\" class=\"".$server_status."\">&nbsp".$server_status."&nbsp</span><a class=\"nav-social border-nav\" style=\"padding: .2rem\" href=\"\" title=\"Refresh\" onclick=\"location.reload()\">&#128472;</a></h4>";
         }
       ?>
+      <nav style = "justify-content: flex-start;">
+        <li style = "margin-left:0;">
+          <?php if($server_type === 1 || $server_type === "steam"):?>
+            <a id="connect-server" title="" class="cont-m-rem nav-social nav-link border-nav font-override" href="<?php echo "steam://connect/".$server_addr.$server_port ?>">Connect to The Server
+              <span style="font-size:8pt"><p><?php echo "steam://connect/".$server_addr.$server_port ?></p></span>
+            </a>
+            <?php endif?>
+          <?php if(!$server_type || $server_type === 0 || $server_type === "nosteam"):?>
+            <a id="connect-server" title="<?php echo $server_addr.$server_port ?>" class="cont-m-rem nav-social nav-link border-nav font-override">Connect to The Server
+              <span style="font-size:8pt"><p><?php echo $server_addr.$server_port ?></p></span>
+            </a>
+          <?php endif?>
+        </li>
+        <li class="container cont-fl-row">
+          <h4 class="font-override cont-m-rem <?php echo $server_status?>" style="padding-inline: 1em"><?php echo $server_status?></h4>
+          <a style="font-size:16pt" class="cont-m-rem cont-p-rem nav-social nav-link border-nav" href="" onclick="location.reload()">
+            <svg class="svg-fill svg-nav rotate"><use xlink:href="public/img/glyph.svg#icn-reload"></use></svg>
+            <span>Refresh Page</span>
+          </a>
+        </li>
+        <li>
+
+        </li>
+      </nav>
     </div>
   </div>
 <?php endif; ?>
@@ -89,7 +138,6 @@ if(isset($_GET['g'])){
     <table id="table-server-info" class="table">      
       <tbody>
       <?php foreach($server_info as $infokey => $infoval):?>
-
         <tr><td style="width: 8em"><?php echo htmlspecialchars($infokey)?></td>
         <td><?php
             if(is_array($infoval)){echo "<pre>"; " : ".print_r($infoval); echo "</pre>";} 
@@ -151,7 +199,12 @@ if(isset($_GET['g'])){
 <?php endif; ?>
 </div>
 
-    <script defer><?php ob_start();?>      
+    <script defer><?php ob_start();?>
+
+      if(/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        document.getElementById('connect-server').style.display = "none";
+      }
+
       Number.prototype.twoDigit = function() {return this>9 ? this.toString() : "0" + this.toString() };
       const timeEl = Array.from(document.getElementsByClassName('time'));
       var temp = timeEl.map(a => a.innerHTML);

@@ -5,6 +5,12 @@ require_once __DIR__ . '/functions.php';
 //SourceQuery
 require_once __DIR__ . '/SourceQuery/bootstrap.php';
 
+//Minecraft Ping/Query
+require_once __DIR__ . '/MinecraftQuery-4.0.0/MinecraftQuery.php';
+require_once __DIR__ . '/MinecraftQuery-4.0.0/MinecraftQueryException.php';
+require_once __DIR__ . '/MinecraftQuery-4.0.0/MinecraftPing.php';
+require_once __DIR__ . '/MinecraftQuery-4.0.0/MinecraftPingException.php';
+
 //Parsedown
 //require_once __DIR__ . '/Parsedown.php';
 

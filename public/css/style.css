@@ -283,7 +283,10 @@ nav .nav-link:hover span {
   transition: calc(var(--transition)*.5) ease;
 }
 
-
+.border-shadow {
+  box-shadow: 4px 4px 4px #0000004d;
+  text-shadow: 2px 2px 2px #0000004d;
+}
 
 /* dom events */
 .nav-link:hover, .nav-link:active, .nav-link:focus {
@@ -300,7 +303,7 @@ nav a:hover .svg-icon, nav a:active .svg-icon
   border-left: 1px solid var(--color-main-bg-gr);
   border-right: 1px solid var(--color-main-white-w);
   border-bottom: 1px solid var(--color-main-white-w);
-  transition: calc(var(--transition)*1);
+  transition: calc(var(--transition)*0);
 }
 
 nav a:hover .svg-nav, nav a:active .svg-nav
@@ -436,26 +439,26 @@ footer {
 }
 
 .online {
-  background-color: greenyellow;
+  box-shadow: inset 4px 4px 12px #0000004d;
+  background-color: #0ba331;
   background-size: 8px 8px;
   background-image: repeating-linear-gradient(45deg, #0000001b 0, #0000001b 3px, #00000000 0, #00000000 50%);
   animation-name: translate-linear;
   animation-duration: 600ms;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  color: var(--color-main-bg-bl);
 }
 .idle {
-  background-color: var(--color-text-hightlight);
+  box-shadow: inset 4px 4px 12px #0000004d;
+  background-color: #8d8714;
   background-size: 8px 8px;
   background-image: repeating-linear-gradient(45deg, #9700001b 0, #0000001b 3px, #00000000 0, #00000000 50%);
-  color: var(--color-main-bg-bl);
 }
 .offline {
+  box-shadow: inset 4px 4px 12px #0000004d;
   background-color: var(--color-alert);
   background-size: 8px 8px;
   background-image: repeating-linear-gradient(45deg, #0000001b 0, #0000001b 3px, #00000000 0, #00000000 50%);
-  color: var(--color-main-bg-bl);
 }
 
 
@@ -494,7 +497,6 @@ footer {
   transform: none;
 }
 
-.rotate:hover {
+*:hover > .rotate {
   transform: rotate(-45deg);
-  transition: 2s;
 }

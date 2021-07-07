@@ -109,7 +109,7 @@ if(isset($_GET['g'])){
           <?php endif?>
         </li>
         <li class="container cont-fl-row">
-          <h4 class="font-override cont-m-rem <?php echo $server_status?>" style="padding-inline: 1em"><?php echo $server_status?></h4>
+          <h4 class="font-override cont-m-rem border-shadow <?php echo $server_status?>" style="padding-inline: 1em"><?php echo $server_status?></h4>
           <a style="font-size:16pt" class="cont-m-rem cont-p-rem nav-social nav-link border-nav" href="" onclick="location.reload()">
             <svg class="svg-fill svg-nav rotate"><use xlink:href="public/img/glyph.svg#icn-reload"></use></svg>
             <span>Refresh Page</span>

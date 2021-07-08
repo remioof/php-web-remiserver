@@ -70,10 +70,13 @@ if(isset($_GET['g'])){
             <a id="connect-server" title="" class="cont-m-rem nav-social nav-link border-nav font-override" href="<?php echo "steam://connect/".$server_addr.$server_port ?>">Connect to The Server
               <span style="font-size:8pt"><p><?php echo "steam://connect/".$server_addr.$server_port ?></p></span>
             </a>
+            <button id="copyToClipboard" copytarget="<?php echo $server_addr.$server_port ?>" title="Copy To Clipboard: <?php echo $server_addr.$server_port ?>" class="border-nav cont-p-rem cont-m-rem" style="width:22pt; height:auto;" onclick="copyToClipboard(this)">
+              <svg class="svg-fill svg-nav" style="width:16pt; height:16pt;"><use xlink:href="public/img/glyph.svg#icn-clip"></use></svg>
+            </button>
             <?php endif?>
           <?php if(!$server_type || $server_type === 0 || $server_type !== "steam"):?>
             <h4 class="cont-m-rem bg-h-dark font-override text-border-shadow box-border-shadow"><?php echo $server_addr.$server_port ?></h4>
-            <button title="Copy To Clipboard: <?php echo $server_addr.$server_port ?>" class="border-nav cont-p-rem cont-m-rem" style="width:22pt; height:auto;">
+            <button id="copyToClipboard" copytarget="<?php echo $server_addr.$server_port ?>" title="Copy To Clipboard: <?php echo $server_addr.$server_port ?>" class="border-nav cont-p-rem cont-m-rem" style="width:22pt; height:auto;" onclick="copyToClipboard(this)">
               <svg class="svg-fill svg-nav" style="width:16pt; height:16pt;"><use xlink:href="public/img/glyph.svg#icn-clip"></use></svg>
             </button>
 

@@ -1,25 +1,14 @@
 <?php
 $title = "Servers";
 // Error reporting
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
-error_reporting(0);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+//error_reporting(0);
 
 require_once('app/_config.php');
 require('app/includes/bootstrap-main.php');
 
 $serverli = json_decode(file_get_contents('app/servers.json'), true);
-
-// queres
-use xPaw\SourceQuery\SourceQuery;
-use xPaw\MinecraftQuery;
-use xPaw\MinecraftQueryException;
-
-define( 'SQ_TIMEOUT',     2 );
-define( 'SQ_ENGINE',      SourceQuery::SOURCE );
-
-$Query = new SourceQuery( );
-$MineQuery = new MinecraftQuery( );
 
 // html render begin here
 use site\baseFunctions as funct;
@@ -40,8 +29,8 @@ echo "<div class=\"cont-height-vh\">";
   <div id="navbar-servers" class="cont-m-top cont-w">
   <?php foreach($serverli as $serverkey => $serverval): ?>
     <div class="container cont-p cont-m cont-w-auto bg-cont-med-alpha border-nav gone nav-link <?php echo "bg-game-".$serverkey;?>" onclick="location.href='?g=<?php echo $serverkey?>'">
-      <svg class="svg-fill svg-nav "><use xlink:href="<?php echo "public/img/icon.svg#".$serverval["meta"]['svgTag'];?>"></use></svg>
-      <h2 style="margin:auto;"><?php echo $serverval['title']?></h2>
+      <svg class="svg-fill svg-nav svg-border-shadow"><use xlink:href="<?php echo "public/img/icon.svg#".$serverval["meta"]['svgTag'];?>"></use></svg>
+      <h2 class="text-border-shadow" style="margin:auto;"><?php echo $serverval['title']?></h2>
     </div>
   <?php endforeach; ?>
   </div>

@@ -1,7 +1,11 @@
 <?php
 // Source_Query_by: xPaw; git: https://github.com/xPaw/PHP-Source-Query;
-// I cant wrap my head in OOP, here lies my fap (Functional Programming) twchnique 
 use site\baseFunctions as funct;
+use site\query\Query as Queres😳;
+
+$Query = new Queres😳;
+
+
 
 $g = "";
 $error = "";
@@ -20,55 +24,20 @@ if(isset($_GET['g'])){
   if($serverli[$g]){
     $server_title = $serverli[$g]['title'];
     $server_conf = $serverli[$g]["gq_config"];
+
     $server_addr = $server_conf['addr'];
     $server_port = $server_conf['port'];
     $server_query = $server_conf['portQuery'];
-    $server_type = $server_conf['isSteam'];
-    if($server_type || $server_type == !null || $server_type= "steam")
-    {
-      //SourceQuery method
-      try
-      {
-        $Query->Connect( ''.$server_addr.'', $server_query, SQ_TIMEOUT, SQ_ENGINE );
-        
-        $server_info = $Query->GetInfo();
-        $server_players = $Query->GetPlayers();
-        $server_rules = $Query->GetRules();
-        
-        // nametable refer to _config.php, to show all items within array, comment these out
-        $server_info = funct\tuncrateList($server_info, $server_info_nametable);
-        $server_rules = funct\tuncrateList($server_rules, $server_rules_nametable);
-      }
-      catch( Exception $e )
-      {
-        $error = $e->getMessage( );
-        // echo $error;
-      }
-      finally
-      {
-        $Query->Disconnect( );
-      }
-    }
-    else 
-    {
-      //Other method; minecraft test
-      try
-      {
-        $MineQuery->Connect( 'remiserver.asuscomm.com', 25565, SQ_TIMEOUT );
-        
-        print_r( $MineQuery->Query( ) );
-        // print_r( $MineQuery->GetPlayers( ) );
+    $server_type = $server_conf['queryMethod'];
 
-        // $server_info = $MineQuery->GetInfo();
-        // $server_players = $MineQuery->GetPlayers();
-      }
-      catch( MinecraftQueryException $e )
-      {
-        $error = $e->getMessage( );
-        echo $error;
-      }
-
-    }
+    
+    $fetch = $Query->begin($server_addr, $server_query, $server_type);
+    // print_r($fetch);
+    $error = $fetch[0];
+    echo $error;
+    $server_info = funct\tuncrateList($fetch[1], $server_info_nametable);
+    $server_rules = funct\tuncrateList($fetch[3], $server_rules_nametable);
+    $server_players = $fetch[2];
   }
 }
 ?>
@@ -82,7 +51,7 @@ if(isset($_GET['g'])){
 <?php if($server_title): //Server Title Jumbo?>
   <div class="container cont-m">
     <div class="cont-p cont-w-auto bg-cont-med-alpha <?php echo "bg-game-".$g;?> cont-fl-col">
-      <h2><?php echo $server_title?></h2>
+      <h2 class="text-border-shadow"><?php echo $server_title?></h2>
       <?php 
         if($server_addr)
         { 
@@ -109,7 +78,7 @@ if(isset($_GET['g'])){
           <?php endif?>
         </li>
         <li class="container cont-fl-row">
-          <h4 class="font-override cont-m-rem border-shadow <?php echo $server_status?>" style="padding-inline: 1em"><?php echo $server_status?></h4>
+          <h4 class="font-override cont-m-rem text-border-shadow <?php echo $server_status?>" style="padding-inline: 1em"><?php echo $server_status?></h4>
           <a style="font-size:16pt" class="cont-m-rem cont-p-rem nav-social nav-link border-nav" href="" onclick="location.reload()">
             <svg class="svg-fill svg-nav rotate"><use xlink:href="public/img/glyph.svg#icn-reload"></use></svg>
             <span>Refresh Page</span>
@@ -144,7 +113,7 @@ if(isset($_GET['g'])){
             else {
               if($infoval === true){echo " : ".'true';}
               else if($infoval === false){echo " : ".'false';}
-              else{echo " : ".htmlspecialchars($infoval);}}
+              else{echo " : ".$infoval;}}
               ?></td></tr>
       <?php endforeach; ?>
 

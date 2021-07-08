@@ -283,9 +283,12 @@ nav .nav-link:hover span {
   transition: calc(var(--transition)*.5) ease;
 }
 
-.border-shadow {
-  box-shadow: 4px 4px 4px #0000004d;
-  text-shadow: 2px 2px 2px #0000004d;
+.text-border-shadow {
+  text-shadow: 4px 4px 5px #00000060;
+}
+
+.svg-border-shadow {
+  filter: drop-shadow(4px 4px 5px #00000060);
 }
 
 /* dom events */

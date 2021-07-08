@@ -5,14 +5,17 @@ namespace site\baseFunctions;
     return number_format(($time/60), 2, '.', '');
   }
 
-  function tuncrateList(array $source, $table=['']){
-    $temp = $source;
-    foreach($source as $key => $val){
-      if(!in_array($key, $table)){
-        unset($temp[$key]);
+  function tuncrateList($source, $table=['']){
+    if($source)
+    {
+      $temp = (array)$source;
+      foreach($source as $key => $val){
+        if(!in_array($key, $table)){
+          unset($temp[$key]);
+        }
       }
+      return $temp;
     }
-    return $temp;
   }
 
   function array_multisort_ascendByString(&$array, string $string) {

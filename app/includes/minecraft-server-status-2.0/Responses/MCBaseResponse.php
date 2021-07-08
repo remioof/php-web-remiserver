@@ -58,88 +58,90 @@ abstract class MCBaseResponse {
 				preg_match("/[&§][0-9a-z]/", $individual, $prefix);
 				if(isset($prefix[0])) {
 					$actualcode = substr($prefix[0], 1);
+          // the authors probably forgot to fix this, so i hotfix this motd to html parser for now
+          // $returnstring should be inbetween the <tags></tags>, not in the begining.
 					switch($actualcode) {
 						case "1":
-							$returnstring = $returnstring . '<span style="color:#0000aa">';
+							$returnstring = '<span style="color:#0000aa">' . $returnstring;
 							$ending = $ending . "</span>";
 							break;
 						case "2":
-							$returnstring = $returnstring . '<span style="color:#00aa00">';
+							$returnstring = '<span style="color:#00aa00">' . $returnstring;
 							$ending = $ending . "</span>";
 							break;
 						case "3":
-							$returnstring = $returnstring . '<span style="color:#00aaaa">';
+							$returnstring = '<span style="color:#00aaaa">' . $returnstring;
 							$ending = $ending . "</span>";
 							break;
 						case "4":
-							$returnstring = $returnstring . '<span style="color:#aa0000">';
+							$returnstring = '<span style="color:#aa0000">' . $returnstring;
 							$ending = $ending . "</span>";
 							break;
 						case "5":
-							$returnstring = $returnstring . '<span style="color:#aa00aa">';
+							$returnstring = '<span style="color:#aa00aa">' . $returnstring;
 							$ending = $ending . "</span>";
 							break;
 						case "6":
-							$returnstring = $returnstring . '<span style="color:#ffaa00">';
+							$returnstring = '<span style="color:#ffaa00">' . $returnstring;
 							$ending = $ending . "</span>";
 							break;
 						case "7":
-							$returnstring = $returnstring . '<span style="color:#aaaaaa">';
+							$returnstring = '<span style="color:#aaaaaa">' . $returnstring;
 							$ending = $ending . "</span>";
 							break;
 						case "8":
-							$returnstring = $returnstring . '<span style="color:#555555">';
+							$returnstring = '<span style="color:#555555">' . $returnstring;
 							$ending = $ending . "</span>";
 							break;
 						case "9":
-							$returnstring = $returnstring . '<span style="color:#5555ff">';
+							$returnstring = '<span style="color:#5555ff">' . $returnstring;
 							$ending = $ending . "</span>";
 							break;
 						case "a":
-							$returnstring = $returnstring . '<span style="color:#55ff55">';
+							$returnstring = '<span style="color:#55ff55">' . $returnstring;
 							$ending = $ending . "</span>";
 							break;
 						case "b":
-							$returnstring = $returnstring . '<span style="color:#55ffff">';
+							$returnstring = '<span style="color:#55ffff">' . $returnstring;
 							$ending = $ending . "</span>";
 							break;
 						case "c":
-							$returnstring = $returnstring . '<span style="color:#ff5555">';
+							$returnstring = '<span style="color:#ff5555">' . $returnstring;
 							$ending = $ending . "</span>";
 							break;
 						case "d":
-							$returnstring = $returnstring . '<span style="color:#ff55ff">';
+							$returnstring = '<span style="color:#ff55ff">' . $returnstring;
 							$ending = $ending . "</span>";
 							break;
 						case "e":
-							$returnstring = $returnstring . '<span style="color:rgb(221, 195, 0)">';
+							$returnstring = '<span style="color:rgb(221, 195, 0)">' . $returnstring;
 							$ending = $ending . "</span>";
 							break;
 						case "f":
-							$returnstring = $returnstring . '<span style="color:#ffffff">';
+							$returnstring = '<span style="color:#ffffff">' . $returnstring;
 							$ending = $ending . "</span>";
 							break;
 						case "l":
 							if(strlen($individual) > 2) {
-								$returnstring = $returnstring . '<span style="font-weight:bold;">';
+								$returnstring = '<span style="font-weight:bold;">' . $returnstring;
 								$ending = "</span>" . $ending;
 								break;
 							}
 						case "m":
 							if(strlen($individual) > 2) {
-								$returnstring = $returnstring . '<del>';
+								$returnstring = '<del>' . $returnstring;
 								$ending = "</del>" . $ending;
 								break;
 							}
 						case "n":
 							if(strlen($individual) > 2) {
-								$returnstring = $returnstring . '<span style="text-decoration: underline;">';
+								$returnstring = '<span style="text-decoration: underline;">' . $returnstring;
 								$ending = "</span>" . $ending;
 								break;
 							}
 						case "o":
 							if(strlen($individual) > 2) {
-								$returnstring = $returnstring . '<i>';
+								$returnstring = '<i>' . $returnstring;
 								$ending = "</i>" . $ending;
 								break;
 							}

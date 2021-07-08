@@ -48,16 +48,15 @@ class Query
     try
     {
       $Query->Connect( $this->addr, $this->port, $this->timeout);
-      
+
       $data_info = $Query->GetInfo();
       $data_players = $Query->GetPlayers();
       $data_rules = $Query->GetRules();
     }
-    catch( Exception $e )
+    //https://stackoverflow.com/questions/2172715/try-catch-block-in-php-not-catching-exception good lord lmao ive been staring this for 3 hours straight
+    catch( \Exception $e )
     {
       $error = $e->getMessage( );
-      echo "asdawd";
-      echo $error;
     }
     finally
     {
@@ -80,19 +79,6 @@ class Query
     );
     $data_players = $Query->sample_player_list;
     return array($error, $data_info, $data_players, []);
-  }
-
-  
-  private function foo( )
-  {
-    echo "remi remi remi u wa u wa uwaaaaaaaaaaaaaaaa";
-    return $this->addr;
-  }
-
-  private function bar()
-  {
-    echo "classautismsdaoidnasndoawdnm";
-    return $this->port;
   }
 
 }

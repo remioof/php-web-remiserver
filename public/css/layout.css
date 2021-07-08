@@ -48,7 +48,7 @@ html * {
 }
 
 .cont-m-rem {
-  margin: 0;
+  margin: 0 !important;
 }
 
 .cont-w {
@@ -79,6 +79,10 @@ html * {
 
 .cont-m-top {
   margin-top: var(--height-main);
+}
+
+.cont-m-left-auto {
+  margin-left: 0;
 }
 
 .cont-height-vh {
@@ -253,8 +257,11 @@ tbody{
   }
 
   .cont-fl-auto > *:last-child {
-    margin-left: 12px;
     margin-top: 0;
+  }
+  
+  .cont-m-left-auto {
+    margin-left: 12px;
   }
 }
 

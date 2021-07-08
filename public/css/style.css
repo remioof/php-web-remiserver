@@ -291,6 +291,11 @@ nav .nav-link:hover span {
   filter: drop-shadow(4px 4px 5px #00000060);
 }
 
+.box-border-shadow {
+  box-shadow: inset 4px 4px 12px #0000004d;
+}
+
+
 /* dom events */
 .nav-link:hover, .nav-link:active, .nav-link:focus {
   color: var(--color-text-hightlight);
@@ -442,7 +447,6 @@ footer {
 }
 
 .online {
-  box-shadow: inset 4px 4px 12px #0000004d;
   background-color: #0ba331;
   background-size: 8px 8px;
   background-image: repeating-linear-gradient(45deg, #0000001b 0, #0000001b 3px, #00000000 0, #00000000 50%);
@@ -452,13 +456,11 @@ footer {
   animation-iteration-count: infinite;
 }
 .idle {
-  box-shadow: inset 4px 4px 12px #0000004d;
   background-color: #8d8714;
   background-size: 8px 8px;
   background-image: repeating-linear-gradient(45deg, #9700001b 0, #0000001b 3px, #00000000 0, #00000000 50%);
 }
 .offline {
-  box-shadow: inset 4px 4px 12px #0000004d;
   background-color: var(--color-alert);
   background-size: 8px 8px;
   background-image: repeating-linear-gradient(45deg, #0000001b 0, #0000001b 3px, #00000000 0, #00000000 50%);
@@ -497,9 +499,13 @@ footer {
 }
 
 .rotate {
-  transform: none;
+  transform: none;  
 }
 
 *:hover > .rotate {
   transform: rotate(-45deg);
+}
+
+*:active > .rotate {
+  transform: rotate(-225deg);
 }

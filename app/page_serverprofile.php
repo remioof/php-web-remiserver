@@ -65,20 +65,23 @@ if(isset($_GET['g'])){
         }
       ?>
       <nav style = "justify-content: flex-start;">
-        <li style = "margin-left:0;">
+        <li class="container cont-fl-row" style="margin-left:0;">
           <?php if($server_type === 1 || $server_type === "steam"):?>
             <a id="connect-server" title="" class="cont-m-rem nav-social nav-link border-nav font-override" href="<?php echo "steam://connect/".$server_addr.$server_port ?>">Connect to The Server
               <span style="font-size:8pt"><p><?php echo "steam://connect/".$server_addr.$server_port ?></p></span>
             </a>
             <?php endif?>
-          <?php if(!$server_type || $server_type === 0 || $server_type === "nosteam"):?>
-            <a id="connect-server" title="<?php echo $server_addr.$server_port ?>" class="cont-m-rem nav-social nav-link border-nav font-override">Connect to The Server
-              <span style="font-size:8pt"><p><?php echo $server_addr.$server_port ?></p></span>
-            </a>
+          <?php if(!$server_type || $server_type === 0 || $server_type !== "steam"):?>
+            <h4 class="cont-m-rem bg-h-dark font-override text-border-shadow box-border-shadow"><?php echo $server_addr.$server_port ?></h4>
+            <button title="Copy To Clipboard: <?php echo $server_addr.$server_port ?>" class="border-nav cont-p-rem cont-m-rem" style="width:22pt; height:auto;">
+              <svg class="svg-fill svg-nav" style="width:16pt; height:16pt;"><use xlink:href="public/img/glyph.svg#icn-clip"></use></svg>
+            </button>
+
+
           <?php endif?>
         </li>
         <li class="container cont-fl-row">
-          <h4 class="font-override cont-m-rem text-border-shadow <?php echo $server_status?>" style="padding-inline: 1em"><?php echo $server_status?></h4>
+          <h4 class="font-override cont-m-rem text-border-shadow box-border-shadow <?php echo $server_status?>" style="padding-inline: 1em"><?php echo $server_status?></h4>
           <a style="font-size:16pt" class="cont-m-rem cont-p-rem nav-social nav-link border-nav" href="" onclick="location.reload()">
             <svg class="svg-fill svg-nav rotate"><use xlink:href="public/img/glyph.svg#icn-reload"></use></svg>
             <span>Refresh Page</span>
@@ -145,7 +148,7 @@ if(isset($_GET['g'])){
     </div>
 
     <?php if(!empty($server_rules)): //if no error and has player: Server rules/vars/configs?>
-      <div class="container cont-m cont-p  cont-fl-col bg-cont-med-alpha">
+      <div class="container cont-m cont-p cont-m-left-auto cont-fl-col bg-cont-med-alpha">
         <h3>Server Variables</h3>
         <table id="table-server-rules" class="table">      
           <tbody>

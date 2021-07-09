@@ -12,12 +12,6 @@ $serverli = json_decode(file_get_contents('app/servers.json'), true);
 
 // html render begin here
 use site\baseFunctions as funct;
-use MatthiasMullie\Minify;
-$cssPath = 'public/css';
-$cssmin = new Minify\CSS($cssPath . '/layout.css');
-$cssmin->add($cssPath . '/style.css');
-$cssmin->add($cssPath . '/banner.css');
-$cssmin->minify($cssPath . '/style-min.css');
 
 include('app/templates/head.php');
 include('app/templates/navbar.php');

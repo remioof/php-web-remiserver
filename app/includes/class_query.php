@@ -5,7 +5,7 @@ namespace site\Query;
 use site\baseFunctions as funct;
 use xPaw\SourceQuery\SourceQuery as SQuery;
 use MCServerStatus\MCPing as MCPing;
-//use MCServerStatus\MCQuery as MCQuery; //prone to not returning anything (idk)
+//use MCServerStatus\MCQuery as MCQuery;
 
 
 require_once __DIR__ . '/SourceQuery/bootstrap.php';
@@ -18,8 +18,6 @@ class Query
   private $addr;
   private $port;
   private $timeout;
-
-  //method? i dont know how to use constructor or even if i need one
 
   public function Begin( string $address, int $queryPort, string $type, int $timeout = 2 )
   {
@@ -53,7 +51,7 @@ class Query
       $data_players = $Query->GetPlayers();
       $data_rules = $Query->GetRules();
     }
-    //https://stackoverflow.com/questions/2172715/try-catch-block-in-php-not-catching-exception good lord lmao ive been staring this for 3 hours straight
+    //https://stackoverflow.com/questions/2172715/try-catch-block-in-php-not-catching-exception
     catch( \Exception $e )
     {
       $error = $e->getMessage( );

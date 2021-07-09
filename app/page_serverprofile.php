@@ -45,9 +45,9 @@ if(isset($_GET['g'])){
 
 
 <div class="container cont-m-top cont-w cont-fl-col">
-<div class="container cont-fl-row">
-  <h4><a class="nav-social border-nav unhide" style="padding: .2rem .4rem .2rem .4rem" title="To Server List" href="/servers.php">&lt;&lt;&lt;</a></h4>
-</div>
+  <div class="container cont-fl-row unhide">
+    <h4><a class="nav-social border-nav" style="padding: .2rem .4rem .2rem .4rem" title="To Server List" href="/servers.php">&lt;&lt;&lt;</a></h4>
+  </div>
 <?php if($server_title): //Server Title Jumbo?>
   <div class="container cont-m">
     <div class="cont-p cont-w-auto bg-cont-med-alpha <?php echo "bg-game-".$g;?> cont-fl-col">

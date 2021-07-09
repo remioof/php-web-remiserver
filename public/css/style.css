@@ -116,7 +116,7 @@ code {
 }
 
 .nav-social .svg-fill {
-  fill: var(--color-text-bl);
+  fill: var(--color-main-white-w);
   transition: var(--transition);
 }
 
@@ -180,6 +180,7 @@ nav .nav-link:hover span {
   margin-top: 0;
   background-color: var(--color-main-bg-bl);
   transition: 200ms;
+  z-index: 2;
 }
 
 #navbar-servers div {
@@ -211,6 +212,7 @@ nav .nav-link:hover span {
   height: 1.6em;
   padding-bottom: 4pt;
   font-size: 2em;
+  z-index: 3;
 }
 
 #rules li {
@@ -314,7 +316,7 @@ nav a:hover .svg-icon, nav a:active .svg-icon
   transition: calc(var(--transition)*0);
 }
 
-nav a:hover .svg-nav, nav a:active .svg-nav
+nav a:hover .svg-nav, nav a:active .svg-nav, button:hover .svg-nav, button:active .svg-nav
 {
   fill: var(--color-text-hightlight);
   transition: calc(var(--transition)*1);
@@ -342,9 +344,9 @@ a:hover, a:active {
 }
 
 .unhide {
-  transform: translateY(0);
-  transition: 200ms;
+  display: inherit;
   opacity: 100%;
+  height: fit-content;
 }
 
 .gone {
@@ -400,9 +402,9 @@ footer {
   }
 
   .unhide{
-    transform: translateY(-100%);
-    transition: 200ms;
+    display: none;
     opacity: 0%;
+    height: 0;
   }
 
   h1 {
@@ -499,7 +501,7 @@ footer {
 }
 
 .rotate {
-  transform: none;  
+  transform: none;
 }
 
 *:hover > .rotate {

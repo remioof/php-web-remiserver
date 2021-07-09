@@ -19,17 +19,17 @@ code{background-color:var(--color-text-bg-grey);color:var(--color-main-white-w);
 .nav-social{background-color:var(--color-text-bg);transition:calc(var(--transition)*1)}
 .nav-social:hover,.nav-social:hover a{background-color:var(--color-text-bg-grey);color:var(--color-text-hightlight)}
 .svg-fill{fill:var(--color-main-white-w);transition:var(--transition)}
-.nav-social .svg-fill{fill:var(--color-text-bl);transition:var(--transition)}
+.nav-social .svg-fill{fill:var(--color-main-white-w);transition:var(--transition)}
 nav .svg-icon{background-color:var(--color-text-bg);border-top:1px solid var(--color-border-h);border-left:1px solid var(--color-border-h);border-right:1px solid var(--color-border-s);border-bottom:1px solid var(--color-border-s);transition:calc(var(--transition)*.5) ease;height:3.6rem;width:3.6rem;padding:.1rem;border-radius:.3rem}
 nav .nav-link{align-items:center;justify-content:center}
 .svg-nav{height:var(--height-main);width:var(--height-main)}
 nav .svg-nav{height:1.8rem;width:1.8rem}
 nav .nav-link span{clip-path:polygon(50% 0,50% 100%,50% 100%,50% 0);transform:translateX(0) translateY(100%);opacity:0;transition:calc(var(--transition)*3);transition-timing-function:cubic-bezier(0.000,0.760,0.580,1.000);padding:0 .2rem 0 .2rem;pointer-events:none;overflow:hidden;font-size:12pt;text-align:left;opacity:0;background-color:var(--color-main-bg-grey-alpha);position:absolute;z-index:1}
 nav .nav-link:hover span{clip-path:polygon(0 0,0 100%,100% 100%,100% 0);transform:translateX(0) translateY(150%);opacity:100%;transition:calc(var(--transition)*2);transition-timing-function:cubic-bezier(0.000,0.760,0.580,1.000)}
-#navbar{margin-top:0;background-color:var(--color-main-bg-bl);transition:200ms}
+#navbar{margin-top:0;background-color:var(--color-main-bg-bl);transition:200ms;z-index:2}
 #navbar-servers div{cursor:pointer;background-position-y:50%;transition:calc(var(--transition));box-shadow:none}
 #navbar-servers div:hover,#navbar-servers div:active{transform:translateY(-.3rem);background-position-y:40%;transition:calc(var(--transition));animation-name:bg-flash;animation-duration:calc(var(--transition)*2);animation-timing-function:ease-out;box-shadow:0 .3rem .6rem var(--color-text-bg-grey)}
-#burger{position:absolute;top:0;right:0;display:flex;justify-content:center;align-items:center;width:1.6em;height:1.6em;padding-bottom:4pt;font-size:2em}
+#burger{position:absolute;top:0;right:0;display:flex;justify-content:center;align-items:center;width:1.6em;height:1.6em;padding-bottom:4pt;font-size:2em;z-index:3}
 #rules li{margin:.2em 0 .4em 2rem;list-style:decimal}
 .bg-animated{background:linear-gradient(#000000a0,#000000a0),url('../img/jumbo.gif')}
 .bg-dim{background-color:#00000066}
@@ -56,12 +56,12 @@ nav .nav-link:hover span{clip-path:polygon(0 0,0 100%,100% 100%,100% 0);transfor
 .box-border-shadow{box-shadow:inset 4px 4px 12px #0000004d}
 .nav-link:hover,.nav-link:active,.nav-link:focus{color:var(--color-text-hightlight);transition:calc(var(--transition)*1)}
 nav a:hover .svg-icon,nav a:active .svg-icon{fill:var(--color-text-hightlight);background-color:var(--color-text-bg-grey);border-top:1px solid var(--color-main-bg-gr);border-left:1px solid var(--color-main-bg-gr);border-right:1px solid var(--color-main-white-w);border-bottom:1px solid var(--color-main-white-w);transition:calc(var(--transition)*0)}
-nav a:hover .svg-nav,nav a:active .svg-nav{fill:var(--color-text-hightlight);transition:calc(var(--transition)*1)}
+nav a:hover .svg-nav,nav a:active .svg-nav,button:hover .svg-nav,button:active .svg-nav{fill:var(--color-text-hightlight);transition:calc(var(--transition)*1)}
 a:hover,a:active{color:var(--color-text-hightlight);transition:calc(var(--transition)*1)}
 .inactive{opacity:60%;transition:calc(var(--transition)*.5)}
 .disabled,.disabled:hover{pointer-events:none !important;opacity:60% !important}
 .hide{transform:translateY(-100%);transition:200ms;opacity:0}
-.unhide{transform:translateY(0);transition:200ms;opacity:100%}
+.unhide{display:inherit;opacity:100%;height:fit-content}
 .gone{display:none !important}
 button{display:flex;flex-direction:row;justify-content:center;align-items:center;text-decoration:none;border:0;font-size:120%;border-radius:0;color:var(--color-text-bl);background-color:var(--color-text-bg);transition:calc(var(--transition)*.5);cursor:pointer}
 button *{padding:0;margin:0}
@@ -70,7 +70,7 @@ footer{color:var(--color-main-bg-gr);background:0}
 @media screen and (min-width:768px){#navbar{display:flex;background:0;transform:translateY(0)}
 #burger{display:none;background:0}
 .hide{transform:translateY(0);transition:200ms;opacity:100%}
-.unhide{transform:translateY(-100%);transition:200ms;opacity:0}
+.unhide{display:none;opacity:0;height:0}
 h1{font-size:48pt}
 h2{font-size:36pt}
 .nav-link span{clip-path:polygon(50% 0,50% 100%,50% 100%,50% 0);transform:translateX(0) translateY(100%)}

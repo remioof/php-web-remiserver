@@ -31,6 +31,7 @@ nav .nav-link:hover span{clip-path:polygon(0 0,0 100%,100% 100%,100% 0);transfor
 #navbar-servers div:hover,#navbar-servers div:active{transform:translateY(-.3rem);background-position-y:40%;transition:calc(var(--transition));animation-name:bg-flash;animation-duration:calc(var(--transition)*2);animation-timing-function:ease-out;box-shadow:0 .3rem .6rem var(--color-text-bg-grey)}
 #burger{position:absolute;top:0;right:0;display:flex;justify-content:center;align-items:center;width:1.6em;height:1.6em;padding-bottom:4pt;font-size:2em;z-index:3}
 #rules li{margin:.2em 0 .4em 2rem;list-style:decimal}
+#modal{display:none;opacity:0;position:-webkit-sticky;position:fixed;justify-content:center;align-items:center;flex-direction:column;width:fit-content;top:-3rem;left:50%;transform:translateX(-50%);margin-bottom:-4rem;z-index:100000}
 .bg-animated{background:linear-gradient(#000000a0,#000000a0),url('../img/jumbo.gif')}
 .bg-dim{background-color:#00000066}
 .bg-static{background-image:url('../img/background.png')}

@@ -15,6 +15,8 @@ use site\baseFunctions as funct;
 
 include('app/templates/head.php');
 include('app/templates/navbar.php');
+include('app/templates/modal.html');
+
 echo "<div class=\"cont-height-vh\">";
 ?>
 

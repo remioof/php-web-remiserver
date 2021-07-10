@@ -1,9 +1,8 @@
 <?php
-// Source_Query_by: xPaw; git: https://github.com/xPaw/PHP-Source-Query;
 use site\baseFunctions as funct;
-use site\query\Query as Queres😳;
+use site\query\Query as Queres;
 
-$Query = new Queres😳;
+$Query = new Queres;
 
 
 
@@ -31,10 +30,10 @@ if(isset($_GET['g'])){
     $server_type = $server_conf['queryMethod'];
 
     
-    $fetch = $Query->begin($server_addr, $server_query, $server_type);
+    $fetch = $Query->Begin($server_addr, $server_query, $server_type);
     // print_r($fetch);
     $error = $fetch[0];
-    echo $error;
+    // echo $error;
     $server_info = funct\tuncrateList($fetch[1], $server_info_nametable);
     $server_rules = funct\tuncrateList($fetch[3], $server_rules_nametable);
     $server_players = $fetch[2];
@@ -70,18 +69,13 @@ if(isset($_GET['g'])){
             <a id="connect-server" title="" class="cont-m-rem nav-social nav-link border-nav font-override" href="<?php echo "steam://connect/".$server_addr.$server_port ?>">Connect to The Server
               <span style="font-size:8pt"><p><?php echo "steam://connect/".$server_addr.$server_port ?></p></span>
             </a>
-            <button id="copyToClipboard" copytarget="<?php echo $server_addr.$server_port ?>" title="Copy To Clipboard: <?php echo $server_addr.$server_port ?>" class="border-nav cont-p-rem cont-m-rem" style="width:22pt; height:auto;" onclick="copyToClipboard(this)">
-              <svg class="svg-fill svg-nav" style="width:16pt; height:16pt;"><use xlink:href="public/img/glyph.svg#icn-clip"></use></svg>
-            </button>
-            <?php endif?>
-          <?php if(!$server_type || $server_type === 0 || $server_type !== "steam"):?>
+          <?php else:?>
             <h4 class="cont-m-rem bg-h-dark font-override text-border-shadow box-border-shadow"><?php echo $server_addr.$server_port ?></h4>
-            <button id="copyToClipboard" copytarget="<?php echo $server_addr.$server_port ?>" title="Copy To Clipboard: <?php echo $server_addr.$server_port ?>" class="border-nav cont-p-rem cont-m-rem" style="width:22pt; height:auto;" onclick="copyToClipboard(this)">
-              <svg class="svg-fill svg-nav" style="width:16pt; height:16pt;"><use xlink:href="public/img/glyph.svg#icn-clip"></use></svg>
-            </button>
-
-
           <?php endif?>
+          <button id="copyToClipboard" copytarget="<?php echo $server_addr.$server_port ?>" title="Copy To Clipboard: <?php echo $server_addr.$server_port ?>" class="border-nav cont-p-rem cont-m-rem" style="width:22pt; height:auto;" onclick="copyToClipboard(this)">
+              <svg class="svg-fill svg-nav" style="width:16pt; height:16pt;"><use xlink:href="public/img/glyph.svg#icn-clip"></use></svg>
+          </button>
+
         </li>
         <li class="container cont-fl-row">
           <h4 class="font-override cont-m-rem text-border-shadow box-border-shadow <?php echo $server_status?>" style="padding-inline: 1em"><?php echo $server_status?></h4>

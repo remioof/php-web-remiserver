@@ -38,7 +38,8 @@ class Query
     }
   }
 
-  //SourceQuery method
+  // SourceQuery method
+  // SourceQuery_by: xPaw; git: https://github.com/xPaw/PHP-Source-Query;
   private function SourceQuery( )
   {
     $Query = new SQuery();

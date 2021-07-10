@@ -220,6 +220,22 @@ nav .nav-link:hover span {
   list-style: decimal;
 }
 
+#modal {
+  display: none;
+  opacity: 0;
+  position: -webkit-sticky;
+  position: fixed;
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column; 
+  width: fit-content;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: -4rem;
+  z-index: 100000;
+}
+
 /* bgs */
 .bg-animated {background: linear-gradient(#000000a0, #000000a0), url('../img/jumbo.gif');}
 

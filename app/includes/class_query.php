@@ -77,7 +77,13 @@ class Query
       "Version" => $Query->version,
     );
     $data_players = $Query->sample_player_list;
-    return array($error, $data_info, $data_players, []);
+    $data_players_norm = array_map(function($player) {
+      return array(
+          'Id' => $player['id'],
+          'Name' => $player['name'],
+      );
+    }, $data_players);
+    return array($error, $data_info, $data_players_norm, []);
   }
 
 }

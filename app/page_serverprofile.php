@@ -131,13 +131,17 @@ if(isset($_GET['g'])){
       <div class="container cont-m cont-p cont-fl-col bg-cont-med-alpha " style="margin-bottom: auto;">
       <!-- <h3>Players</h3> -->
       <table id="table-server-players" class="table">
-        <thead><tr><th>Player</th><th style="width: 4em">Frags</th><th style="width: 4em">Time</th></tr></thead>
+        <thead><tr>
+          <th>Player</th>
+          <?php if(isset($server_players[0]['Frags'])):?><th style="width: 4em">Frags</th><?php endif?>
+          <?php if(isset($server_players[0]['Time'])):?><th style="width: 4em">Time</th><?php endif?>
+        </tr></thead>
         <tbody>
         <?php foreach($server_players as $player):?>
           <tr>
-            <td><?php echo "&nbsp".htmlspecialchars( $player[ 'Name' ] ); ?></td>
-            <td><?php echo $player[ 'Frags' ]; ?></td>
-            <td class="time"><?php echo $player[ 'Time' ]; ?></td>
+            <td><?php echo "&nbsp".htmlspecialchars($player['Name']); ?></td>
+            <?php if(isset($player['Frags'])){ echo "<td>" . $player['Frags'] . "</td>";} ?>
+            <?php if(isset($player['Time'])){ echo "<td class=\"time\">" . $player['Time'] . "</td>";} ?>
           </tr>
         <?php endforeach;?>
         </tbody>
